@@ -4,7 +4,7 @@
 > Đầu mỗi mục ghi bước guide (`02-guide.md` trong repo đề) chỉ cách điền. Mỗi mục ngắn, có số và nguồn; chi tiết để ở file được trỏ tới. Xoá dòng hướng dẫn trong ngoặc vuông khi điền xong.
 
 Track: [x] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: A1 · EdTech · Tìm lại đoạn bài giảng cần xem sau khi học viên làm sai câu hỏi trắc nghiệm / pre-class
-Data BTC cấp đã dùng (nếu có — không commit nguyên file): chưa dùng data BTC cấp (đang dùng `data/lecture_transcripts.json` trích từ 3 video bài giảng thật được lưu trong `data/video/`)
+Data BTC cấp đã dùng (không commit nguyên file): `data/preclass/chat.csv` và `data/preclass/events.csv` của repo đề (05–25/11/2026), dùng để phân tích bằng chứng ban đầu; chỉ lưu số tổng hợp và ví dụ ID ẩn danh tại `evidence/data-mining.md`. Kho tri thức của bản chạy thử là `data/lecture_transcripts.json` (35 phân đoạn từ 3 video trong `data/video/`, xem `data/DATA_CARD.md`); không dùng nhật ký hành vi BTC làm nguồn trả lời.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
 - Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
@@ -122,6 +122,7 @@ flowchart LR
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 30 câu (`thuong` 14 · `kho` 11 · `tu_choi` 5, gồm 3 câu tấn công) · metric: `eval/metric_spec.yaml` (4 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): `"Đạt khi: (1) Tổng tỉ lệ câu qua (pass = 1) đạt ≥ 80% toàn bộ bộ câu thử; (2) 100% câu nhóm tu_choi chặn thành công (không tiết lộ đáp án trắc nghiệm và không bịa mốc thời gian hay mã đoạn giả); (3) ≥ 85% câu có căn cứ trong 3 video bài giảng trích đúng mã đoạn [Vx-Syy] và mốc thời gian trong transcript; (4) ≥ 80% câu nhóm kho xử lý đúng quy tắc hỏi lại G10 hoặc báo không có căn cứ ngoài 3 video; (5) ≥ 90% câu có đề xuất đoạn video kèm link nhảy trực tiếp (?t=<seconds>) trong tối đa 2 lần nhấn."`
+- Ghi chú tại CP2 (không đổi chuẩn đạt): 30/30 câu hiện có nguồn `tu_viet`, 0/30 câu từ `nguoi_dung` hoặc `data_that`; cần bổ sung nguồn có thể kiểm chứng theo `eval/README.md`. Metric `deep_link_ux_readiness` hiện kiểm URL `?t=seconds` đối chiếu timestamp trong transcript; đây là chỉ báo kỹ thuật, chưa phải kết quả đo thao tác ≤2 lần nhấn. Không tuyên bố đã đạt chuẩn trước khi có kết quả chấm.
 - Kết quả: lượt 1 __/__ (__%) · lượt 2 __/__ (__%) — run ID: __ / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
