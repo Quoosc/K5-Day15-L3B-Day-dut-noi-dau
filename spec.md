@@ -16,6 +16,7 @@ Data BTC cấp đã dùng (không commit nguyên file): `data/preclass/chat.csv`
 - Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: Theo ghi chép P1, người học đọc phản hồi dưới video, xem lại đoạn liên quan, tìm ví dụ trên Google hoặc hỏi công cụ khác rồi đối chiếu với bài. Phản hồi có ví dụ nhưng đôi khi còn tổng quát, chưa sát bài; P1 vẫn dùng cách này vì cuối cùng hiểu được phần lớn và tự giải thích lại được. P2/P3 chỉ có ghi chép tóm tắt về cách xoay xở; chưa có tình huống chi tiết. Xem `evidence/summary.md`.
 - Pain (KHÔNG chữ AI): P1 gặp khái niệm khó khi học bài AI Agent; phản hồi dưới video đôi khi chưa đủ cụ thể nên phải xem lại bài và tự tìm thêm ví dụ, mất khoảng 10–15 phút ở lần gần nhất theo ghi chép. Chưa xác nhận đây là tình huống vừa làm sai quiz rồi phải tua nhiều đoạn.
 - Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`, `evidence/data-mining.md`): 98/1.091 lượt hỏi (9,0%) có cờ `missing_context`, nhưng cờ không đo câu trả lời sai hay hành vi tua lại. Data chỉ có 7 câu trả lời video quiz lần đầu từ 2 người; 2 lần sai của cùng 1 người và 0/2 có seek cùng video trong 15 phút. Ba ghi chép phỏng vấn nói về khó khăn chung, chưa xác nhận đúng nhóm L3B ngoài nhóm hay pain quiz-sai.
+- **Hạn chế nguồn:** P1–P9 trong `evidence/interviews/` là hồ sơ giả lập chuyển từ câu trả lời khảo sát S001–S009, không phải biên bản phỏng vấn thật và không có câu trả lời tự luận gốc. Data pack BTC chỉ cung cấp metadata/độ dài, không có nội dung câu hỏi người học. Do đó chưa thể trích nguyên văn hay gán câu hỏi thực tế cho người dùng nào; các con số tần suất/thời gian trong ghi chép là *(tự ước tính)* từ sheet khảo sát, chưa xác minh.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
@@ -139,6 +140,8 @@ flowchart LR
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
 - Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
+- Chấm chéo phiếu B: yêu cầu thành viên khác (không phải người viết câu trả lời) dùng `eval/phieu-cham-B.md` chấm 5 đầu ra B01, B10, B16, B21, B28 trước khi mở bảng điểm A trong README.
+- `run.py check` sẽ báo `0/30 câu từ người dùng/dữ liệu thật` — đây là kết quả kỳ vọng vì `benchmark.csv` hiện toàn bộ `source = tu_viet:...` và `P1–P9` là hồ sơ giả lập; không được sửa `expected` hay làm giả nguồn để tắt cảnh báo này.
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
@@ -152,4 +155,4 @@ flowchart LR
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-|  |  |  |
+| 28/11 | Ghi rõ hạn chế nguồn trong §1 (P1–P9 giả lập, không có câu trả lời tự luận gốc; BTC không có câu hỏi học viên); ghi yêu cầu chấm chéo phiếu B và cảnh báo run.py check 0/30 câu thật trong §10 | Tuân thủ AGENTS.md: không bịa nguồn thật, không sửa chuẩn đạt/câu thử |
