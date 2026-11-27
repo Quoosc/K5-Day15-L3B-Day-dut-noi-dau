@@ -11,10 +11,10 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Hoàng Minh | ____ | Đội trưởng | Chốt phạm vi và kiểm tra bản nộp |
-| 2 | Nguyễn Anh Tú | ____ | Thành viên | Kiểm tra dữ liệu và hỏi học viên |
-| 3 | Phạm Trấn Quốc | ____ | Thành viên | Làm chức năng tìm đoạn video |
-| 4 | Trương Văn Phong | ____ | Thành viên | Chuẩn bị câu thử và đo số lần nhấn |
+| 1 | Hoàng Minh | 2A202604103 | Đội trưởng | Chốt phạm vi và kiểm tra bản nộp |
+| 2 | Nguyễn Anh Tú | 2A202604088 | Thành viên | Kiểm tra dữ liệu và hỏi học viên |
+| 3 | Phạm Trấn Quốc | 2A202604113 | Thành viên | Làm chức năng tìm đoạn video |
+| 4 | Trương Văn Phong | 2A202604091 | Thành viên | Chuẩn bị câu thử và đo số lần nhấn |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
