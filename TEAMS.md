@@ -11,10 +11,10 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Hoàng Minh | 2A202604103 | Đội trưởng | Chốt phạm vi và kiểm tra bản nộp |
-| 2 | Nguyễn Anh Tú | 2A202604088 | Thành viên | Kiểm tra dữ liệu và hỏi học viên |
-| 3 | Phạm Trấn Quốc | 2A202604113 | Thành viên | Làm chức năng tìm đoạn video |
-| 4 | Trương Văn Phong | 2A202604091 | Thành viên | Chuẩn bị câu thử và đo số lần nhấn |
+| 1 | Hoàng Minh | 2A202604103 | Đội trưởng | Chốt phạm vi, thiết kế sản phẩm và kiến trúc, tích hợp, slide, kiểm tra bản nộp (`spec.md`, `canvas.md`, `README.md`, `slides/`, `demo-slides.pdf`) |
+| 2 | Nguyễn Anh Tú | 2A202604088 | Thành viên | Nghiên cứu người dùng, kiểm chứng giả thuyết, phân tích dữ liệu, thu thập bằng chứng (`evidence/`, `data/`) |
+| 3 | Phạm Trấn Quốc | 2A202604113 | Thành viên | Tìm đoạn video, truy xuất transcript, tích hợp model thật, guardrails và giao diện demo (`codebase/`, `requirements.txt`) |
+| 4 | Trương Văn Phong | 2A202604091 | Thành viên | Benchmark, metric, kiểm thử, đánh giá hai lượt, đo số lần nhấn và mô phỏng chi phí (`eval/`, `validation/`, `cost/`) |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
