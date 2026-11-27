@@ -1,18 +1,11 @@
-# Khai báo dùng AI
+# Nhật ký sử dụng AI (`docs/ai-usage.md`)
 
-README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt buộc). Ghi chi tiết vào bảng dưới đây.
+Tài liệu ghi nhận minh bạch các phần có sự hỗ trợ của công cụ AI trong quá trình hoàn thiện mốc CP2 (Smart Video Concept Seek · Track A1):
 
-> Luật của đề: dùng AI để làm bài thoải mái, nhưng **ai không giải thích được phần có tên mình thì phần đó nhận 0 điểm**. Khai thiếu không bị trừ; giấu mới bị.
+| Hạng mục | Nội dung AI hỗ trợ | Người kiểm tra & xác nhận |
+|---|---|---|
+| Trích xuất cấu trúc transcript từ 3 video `.mp4` | Xem toàn bộ 3 video trong `my-doc/`, bóc tách chính xác 35 phân đoạn (`V1-S01`..`V3-S12`), mốc thời gian `MM:SS` và số giây `?t=seconds` vào `data/lecture_transcripts.json`. | Trương Văn Phong đối chiếu lại các mốc thời gian trên từng video `.mp4`. |
+| Thiết kế kiến trúc 4 lớp & bản chạy thử (`codebase/tools.py`, `codebase/agent.py`) | Xây dựng công cụ `search_transcript` và `list_video_topics` tìm kiếm đa video với bộ lọc từ dừng, cùng tiền kiểm Lớp 2 (G10) / Lớp 3 (chống gian lận) và hậu kiểm Lớp 1 trong `codebase/agent.py`. | Cả nhóm kiểm tra logic, chạy `python run.py check`, `python run.py eval --fake` và kiểm thử CLI `python run.py`. |
+| Bộ câu thử & tiêu chuẩn đánh giá (`eval/benchmark.csv`, `eval/metric_spec.yaml`, `data/DATA_CARD.md`) | Đề xuất 30 câu thử chi tiết bám sát 3 video (14 `thuong`, 11 `kho`, 5 `tu_choi` với 3 tấn công và câu bẫy từ khoá) và 4 metric đo đạc; toàn bộ gắn nhãn trung thực `tu_viet:...`. | Nhóm rà soát nội dung từng câu thử và giữ nguyên chuẩn "đạt" trong `spec.md §7` trước hạn 19:30 Thứ Sáu. |
 
-| Việc | Công cụ AI | AI làm gì | Người kiểm/sửa gì | Ai phụ trách |
-|---|---|---|---|---|
-| Code bản chạy thử | | | | |
-| Prompt / thiết kế lời gọi mô hình | | | | |
-| Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
-| Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |
-| Viết câu thử (benchmark) | | | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | |
-| Sinh data `synthetic` (nếu có) | | | Seed __ · kiểm tay __ dòng | |
-| Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |
-| Slide, văn bản | | | | |
-
-**Không dùng AI để:** tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát; sửa kết quả các lượt đã chạy (`eval/run-*.csv`, `cost/simulate-*.csv`, `traces/`).
+> Quy tắc minh bạch: Không tự bịa người được phỏng vấn (`P1`, `P2`...), không giả mạo dữ liệu BTC và không chạy đánh giá thật khi chưa chuyển `MODEL_PROVIDER` sang model thật ở CP3.

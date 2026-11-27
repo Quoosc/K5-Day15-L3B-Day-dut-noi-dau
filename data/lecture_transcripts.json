@@ -1,0 +1,351 @@
+{
+  "dataset_version": "2.0",
+  "description": "Transcript trích xuất trực tiếp từ 3 video bài giảng thực tế trong thư mục my-doc/ dùng cho lát cắt Smart Video Concept Seek (35 phân đoạn có mốc thời gian).",
+  "videos": [
+    {
+      "video_id": "VID-01",
+      "title": "Tìm hiểu về thuật ngữ Mounted & Unmounted",
+      "speaker": "F8 Official",
+      "source_file": "my-doc/Tìm hiểu về thuật ngữ Mounted & Unmounted.mp4",
+      "duration": "05:36",
+      "video_url": "https://course.local/videos/VID-01",
+      "segments": [
+        {
+          "code": "V1-S01",
+          "start": "00:00",
+          "end": "00:35",
+          "seconds": 0,
+          "topic": "Định nghĩa thuật ngữ Mounted và Unmounted trong ReactJS",
+          "keywords": ["mounted", "unmounted", "mount", "unmount", "gan vao", "go ra", "dinh nghia", "thuat ngu"],
+          "text": "Trong ReactJS, hai thuật ngữ thường xuyên đi cùng nhau là Mounted và Unmounted. Mounted là thời điểm gắn hoặc lắp một component vào để sử dụng, còn Unmounted là thời điểm tháo hoặc gỡ component đó ra khi không sử dụng nữa."
+        },
+        {
+          "code": "V1-S02",
+          "start": "00:35",
+          "end": "01:38",
+          "seconds": 35,
+          "topic": "Tách component Content thành module riêng và import vào App",
+          "keywords": ["content.js", "export default", "import content", "javascript module", "tach file", "component content"],
+          "text": "Thực hành tách component Content sang file Content.js riêng bằng hàm trả về thẻ h1 Hi anh em F8, dùng export default Content rồi import Content vào file App.js theo chuẩn JavaScript module."
+        },
+        {
+          "code": "V1-S03",
+          "start": "01:38",
+          "end": "02:45",
+          "seconds": 98,
+          "topic": "Dùng useState và nút Toggle kết hợp biểu thức điều kiện show && Content",
+          "keywords": ["usestate", "setshow", "toggle", "onclick", "an hien", "show &&", "render co dieu kien"],
+          "text": "Dùng hook useState(false) tạo state show và hàm setShow, gắn nút Toggle với onClick={() => setShow(!show)} và dùng toán tử logic {show && <Content />} để chỉ render component Content khi show là true."
+        },
+        {
+          "code": "V1-S04",
+          "start": "02:45",
+          "end": "03:15",
+          "seconds": 165,
+          "topic": "Minh hoạ Mount/Unmount trực quan trên giao diện và DevTools Elements",
+          "keywords": ["devtools", "dom", "hi anh em f8", "minh hoa", "bam toggle"],
+          "text": "Quan sát tab Elements trong DevTools: lúc đầu chưa bấm Toggle thì trong DOM hoàn toàn không có thẻ h1 Hi anh em F8; khi bấm Toggle lần một thẻ h1 được đưa vào (mount), bấm lần hai thẻ biến mất khỏi DOM (unmount)."
+        },
+        {
+          "code": "V1-S05",
+          "start": "03:15",
+          "end": "04:20",
+          "seconds": 195,
+          "topic": "Bản chất kỹ thuật: thời điểm Mount và Unmount diễn ra ở React Element trước khi render DOM",
+          "keywords": ["ban chat", "react element", "truoc khi render", "thoi diem mount", "jsx", "ky thuat"],
+          "text": "Về bản chất, Mount diễn ra ngay tại thời điểm component được đưa vào React Element để sử dụng, trước khi JSX xử lý và render vào DOM thật; Unmount là khi điều kiện trở thành false khiến component bị gỡ khỏi React Element."
+        },
+        {
+          "code": "V1-S06",
+          "start": "04:20",
+          "end": "05:36",
+          "seconds": 260,
+          "topic": "Ví dụ component gốc App trong index.js luôn tự mount khi khởi chạy",
+          "keywords": ["index.js", "reactdom", "component app", "f5", "strictmode", "khong bi unmount"],
+          "text": "Mở rộng sang component App trong file index.js dùng ReactDOM.render(<React.StrictMode><App /></React.StrictMode>, ...): ngay khi mở trang hoặc F5, App đã được truyền vào ReactDOM.render để mount và chạy xuyên suốt mà không bị unmount vì không có điều kiện gỡ bỏ."
+        }
+      ]
+    },
+    {
+      "video_id": "VID-02",
+      "title": "Tất cả những gì bạn cần biết về Harness Engineering",
+      "speaker": "Việt Nguyễn AI",
+      "source_file": "my-doc/Tất cả những gì bạn cần biết về Harness Engineering.mp4",
+      "duration": "38:56",
+      "video_url": "https://course.local/videos/VID-02",
+      "segments": [
+        {
+          "code": "V2-S01",
+          "start": "00:00",
+          "end": "01:50",
+          "seconds": 0,
+          "topic": "Giới thiệu Agent Harness, Harness Engineering và công thức Agent = Model + Harness",
+          "keywords": ["agent = model + harness", "agent harness", "model + harness", "cong thuc", "bo nao", "dinh nghia harness", "gioi thieu harness"],
+          "text": "Mở đầu bằng công thức Agent = Model + Harness: mô hình ngôn ngữ lớn như GPT, Gemini hay Claude chỉ là bộ não thông minh nhưng nằm yên trên server, còn Agent Harness là toàn bộ hệ thống bao quanh để bộ não làm việc thực tế được; xây dựng và tối ưu phần bao quanh đó gọi là Harness Engineering."
+        },
+        {
+          "code": "V2-S02",
+          "start": "01:50",
+          "end": "04:08",
+          "seconds": 110,
+          "topic": "Giai đoạn 1: Prompt Engineering (2022) và hạn chế one-shot ở bàn bếp 4K token",
+          "keywords": ["prompt engineering", "one-shot", "4000 token", "2022", "khong co tri nho", "tra loi mot phat"],
+          "text": "Lịch sử giai đoạn 1 là Prompt Engineering năm 2022 với context window nhỏ khoảng 4.000 token (như bàn bếp chật). Model không có trí nhớ dài hạn, không tự lấy thêm nguyên liệu hay tự sửa khi sai mà chỉ trả lời một phát ăn ngay (one-shot)."
+        },
+        {
+          "code": "V2-S03",
+          "start": "04:08",
+          "end": "06:28",
+          "seconds": 248,
+          "topic": "Giai đoạn 2: Context Engineering với 3 kỹ thuật Tool calling, MCP và RAG",
+          "keywords": ["context engineering", "tool calling", "mcp", "model context protocol", "rag", "ba ky thuat"],
+          "text": "Giai đoạn 2 là Context Engineering: chọn đúng thông tin đưa vào đúng lúc khi context window vẫn hữu hạn, gồm 3 kỹ thuật chính là Tool calling (tự gọi công cụ lấy file hoặc chạy lệnh), MCP (Model Context Protocol như chuẩn ổ cắm chung) và RAG (tìm trong kho tài liệu hoặc cơ sở dữ liệu ngoài)."
+        },
+        {
+          "code": "V2-S04",
+          "start": "06:28",
+          "end": "08:41",
+          "seconds": 388,
+          "topic": "Giới hạn Context Engineering với tác vụ lớn dài và thử nghiệm Sub-agent / Swarm",
+          "keywords": ["gioi han context", "tom tat ngu canh", "swarm", "bay agent", "tuong da xong", "tac vu lon"],
+          "text": "Khi chuyển từ tác vụ ngắn sang dự án lớn dài 12 tiếng, Context Engineering bộc lộ hai hạn chế: tự tóm tắt ngữ cảnh làm rơi chi tiết quan trọng và model hay ảo tưởng là đã làm xong trong khi còn nhiều lỗi. Các thử nghiệm Sub-agent phân tầng hay Swarm bầy agent ngang hàng vẫn gặp giới hạn mất kiểm soát khi chạy dài."
+        },
+        {
+          "code": "V2-S05",
+          "start": "08:52",
+          "end": "11:29",
+          "seconds": 532,
+          "topic": "Giai đoạn 3: Harness Engineering (yên cương) và kỹ thuật Ralph chia việc theo nhiều ca sạch",
+          "keywords": ["ralph", "prd", "checklist json", "chia thanh nhieu ca", "yen cuong", "product requirements document"],
+          "text": "Harness nguyên nghĩa là bộ yên cương ngựa để điều hướng sức mạnh đúng đường ray. Lấy ví dụ kỹ thuật Ralph giải quyết tác vụ dài bằng cách viết PRD, chia nhỏ thành checklist JSON và chạy vòng lặp: mở ca mới tinh sạch sẽ chỉ làm 1 việc trong danh sách, tự chạy test đạt mới tích hoàn thành rồi ghi sổ chuyển ca."
+        },
+        {
+          "code": "V2-S06",
+          "start": "11:29",
+          "end": "13:18",
+          "seconds": 689,
+          "topic": "So sánh Prompt vs Context vs Harness Engineering bằng 3 vòng tròn lồng nhau",
+          "keywords": ["ba vong tron", "khai tu", "so sanh prompt context harness", "ba pham vi", "system prompt cline"],
+          "text": "Phân biệt ba khái niệm qua 3 vòng tròn lồng nhau: vòng trong cùng là Prompt Engineering (vai trò, giọng văn, định dạng trả lời), vòng giữa là Context Engineering (bày dữ liệu gì lên bàn cho model đọc), vòng ngoài cùng là Harness Engineering (quy trình, công cụ, kiểm tra và an toàn). Harness không khai tử Prompt hay Context như system prompt của Cline hay Cursor."
+        },
+        {
+          "code": "V2-S07",
+          "start": "13:18",
+          "end": "14:30",
+          "seconds": 798,
+          "topic": "Phân biệt Agent Framework (LangChain, CrewAI...) với Agent Harness",
+          "keywords": ["framework", "langchain", "langgraph", "crewai", "autogen", "chia khoa trao tay", "phan biet framework"],
+          "text": "Agent Framework như LangChain, LangGraph, CrewAI, AutoGen hay LlamaIndex cung cấp các linh kiện rời để lập trình viên tự lắp đặt bếp từ đầu; còn Agent Harness giống nhà hàng chìa khoá trao tay với vòng lặp chính, công cụ đọc sửa chạy lệnh, bộ nhớ và phân quyền kết nối sẵn."
+        },
+        {
+          "code": "V2-S08",
+          "start": "14:30",
+          "end": "16:40",
+          "seconds": 870,
+          "topic": "Tổng quan 9 thành phần Harness (Claude Code) & Thành phần 1: Vòng lặp chính (Main Loop)",
+          "keywords": ["chin thanh phan", "9 thanh phan", "vong lap chinh", "vong lap while", "gioi han so vong", "dung vong lap"],
+          "text": "Minh hoạ 9 thành phần cấu tạo một Harness hoàn chỉnh qua kiến trúc Claude Code. Thành phần 1 là Vòng lặp chính (Main Loop): vòng lặp while đưa prompt và danh sách công cụ cho model, nhận yêu cầu gọi công cụ, chạy công cụ trả kết quả rồi lặp tiếp; vòng lặp chỉ dừng khi model trả lời bằng chữ không gọi công cụ nữa hoặc chạm giới hạn số vòng."
+        },
+        {
+          "code": "V2-S09",
+          "start": "16:40",
+          "end": "18:05",
+          "seconds": 1000,
+          "topic": "Thành phần 2: Quản lý ngữ cảnh & cơ chế Compaction (nén ngữ cảnh ở ngưỡng 80-90%)",
+          "keywords": ["compaction", "nen ngu canh", "nguong compaction", "80", "90", "ban so 5", "khong hanh", "mat ghi chu"],
+          "text": "Thành phần 2 là quản lý ngữ cảnh và Compaction (nén ngữ cảnh): khi cửa sổ ngữ cảnh đầy khoảng 80 đến 90 phần trăm, hệ thống nén các lượt cũ và giữ lại phần mới để tiếp tục làm việc, nhưng việc nén luôn tiềm ẩn rủi ro đánh rơi ghi chú nhỏ quan trọng như chi tiết bàn số 5 không ăn hành."
+        },
+        {
+          "code": "V2-S10",
+          "start": "18:05",
+          "end": "20:00",
+          "seconds": 1085,
+          "topic": "Thành phần 3: Phân biệt Tools vs Skills và cấu trúc 4 trường của Registry",
+          "keywords": ["tools", "skills", "registry", "markdown", "bi quyet rieng", "bon truong", "chi nap skill"],
+          "text": "Thành phần 3 là Tools, Skills và Registry: Tools là các thao tác phổ quát cơ bản như đọc, ghi file hay chạy lệnh; Skills là các file Markdown chứa bí quyết quy trình riêng chỉ được nạp vào ngữ cảnh khi đụng đúng việc; Registry lưu danh mục công cụ gồm 4 trường bắt buộc là tên, quyền cần có, hàm thực thi và mô tả để model đọc hiểu."
+        },
+        {
+          "code": "V2-S11",
+          "start": "20:00",
+          "end": "23:26",
+          "seconds": 1200,
+          "topic": "Thành phần 4 & 5: Sub-agents (3 kiểu & bàn riêng) và Built-in Skills",
+          "keywords": ["sub-agent", "sub-agents", "agent con", "ba kieu", "kham pha", "skill co san", "git commit", "pull request"],
+          "text": "Thành phần 4 là Sub-agents gồm 3 kiểu chính: khám phá chỉ đọc, thực thi làm chung và kiểm tra độc lập; mỗi agent con làm việc trên bàn riêng để không làm rối ngữ cảnh cha rồi chỉ nộp lại báo cáo tóm tắt. Thành phần 5 là Built-in Skills từ thao tác cơ bản (đọc/sửa/tìm kiếm/chạy lệnh) tới kỹ năng nâng cao như git commit, mở pull request và chạy kiểm thử."
+        },
+        {
+          "code": "V2-S12",
+          "start": "23:26",
+          "end": "25:03",
+          "seconds": 1406,
+          "topic": "Thành phần 6: Memory — nhật ký chỉ ghi thêm (append-only) và Replay khi sập nguồn",
+          "keywords": ["memory", "bo nho phien", "append-only", "chi ghi them", "nhat ky", "replay", "mat dien"],
+          "text": "Thành phần 6 là Memory quản lý bộ nhớ phiên làm việc bằng tệp nhật ký chỉ ghi thêm (append-only JSON hoặc Markdown) lưu trực tiếp xuống ổ đĩa ngay sau mỗi bước, giúp hệ thống không mất lịch sử khi sập hoặc mất điện và có thể Replay đọc lại làm tiếp từ bước dở."
+        },
+        {
+          "code": "V2-S13",
+          "start": "25:03",
+          "end": "27:56",
+          "seconds": 1503,
+          "topic": "Thành phần 7: Lắp ráp System Prompt từ AGENTS.md/CLAUDE.md và tối ưu Prefix Caching",
+          "keywords": ["prefix caching", "prompt caching", "agents.md", "claude.md", "phan tinh", "phan dong", "lap rap system prompt"],
+          "text": "Thành phần 7 là lắp ráp System Prompt theo tầng thư mục (như file AGENTS.md hay CLAUDE.md) kết hợp kỹ thuật Prefix Caching (Prompt Caching): luôn đặt phần hướng dẫn tĩnh ở đầu và phần biến động ở cuối để nhà cung cấp giữ cache không phải tính lại từ đầu mỗi lượt."
+        },
+        {
+          "code": "V2-S14",
+          "start": "27:56",
+          "end": "29:19",
+          "seconds": 1676,
+          "topic": "Thành phần 8: Hooks (Pre-tool hook vs Post-tool hook) giao tiếp bằng JSON và exit code",
+          "keywords": ["hook", "hooks", "pre-tool", "post-tool", "diem moc", "exit code", "kiem toan", "ghi log"],
+          "text": "Thành phần 8 là Hooks (điểm móc mở rộng): Pre-tool hook chạy trước khi gọi công cụ để cho phép, chặn hoặc sửa đầu vào; Post-tool hook chạy sau để quan sát, ghi nhật ký hay kiểm toán tuân thủ; các hook giao tiếp đơn giản qua JSON đầu vào và mã thoát (exit code) đầu ra."
+        },
+        {
+          "code": "V2-S15",
+          "start": "29:19",
+          "end": "31:10",
+          "seconds": 1759,
+          "topic": "Thành phần 9: Phân quyền & An toàn (3 bậc quyền và kiểm tra thao tác + phạm vi)",
+          "keywords": ["phan quyen", "permissions", "ba bac", "3 bac", "toan quyen", "chi doc", "xin xac nhan", "xoa file"],
+          "text": "Thành phần 9 là Phân quyền và An toàn chia 3 bậc: chỉ đọc quan sát, được ghi sửa trong vùng được giao, và toàn quyền thực thi. Mọi yêu cầu được xét theo hai trục là thao tác gì và phạm vi tác động đến đâu, những lệnh nhạy cảm như xoá dữ liệu hoặc ra ngoài thư mục phải bị chặn hoặc xin xác nhận con người."
+        },
+        {
+          "code": "V2-S16",
+          "start": "31:10",
+          "end": "33:06",
+          "seconds": 1870,
+          "topic": "Minh hoạ ghép 9 thành phần giải quyết lỗi nút đăng nhập không bấm được",
+          "keywords": ["nut dang nhap", "sua loi nut dang nhap", "ghep 9 thanh phan", "luong xu ly thuc te"],
+          "text": "Chạy thử trọn luồng 9 thành phần với bài toán sửa lỗi nút đăng nhập không bấm được: lắp ráp prompt từ AGENTS.md, vòng lặp chính gọi sub-agent dò code, qua kiểm quyền và pre-tool hook rồi sửa code, chạy kiểm thử kiểm chứng và ghi bộ nhớ nhật ký."
+        },
+        {
+          "code": "V2-S17",
+          "start": "33:06",
+          "end": "38:56",
+          "seconds": 1986,
+          "topic": "5 lưu ý thực chiến: ngăn lỗi bằng cơ chế, phản hồi kiểm thử và dùng Sandbox cách ly",
+          "keywords": ["sandbox", "container", "may ao", "tu sua", "co che ngan loi", "loi nhac", "moi truong thu nghiem"],
+          "text": "Năm lưu ý thực chiến khi làm Harness: cùng model nhưng môi trường khác cho kết quả khác; tận dụng lõi sẵn có thay vì đập đi làm lại từ đầu; ngăn lỗi bằng cơ chế cứng thay vì lời nhắc suông; cung cấp tín hiệu test để agent tự sửa; và luôn chạy trong Sandbox (container hoặc máy ảo cách ly dữ liệu và tài nguyên)."
+        }
+      ]
+    },
+    {
+      "video_id": "VID-03",
+      "title": "Tất cả những gì bạn cần biết về Transformer trong 35 phút",
+      "speaker": "Việt Nguyễn AI",
+      "source_file": "my-doc/Tất cả những gì bạn cần biết về Transformer trong 35 phút.mp4",
+      "duration": "35:52",
+      "video_url": "https://course.local/videos/VID-03",
+      "segments": [
+        {
+          "code": "V3-S01",
+          "start": "00:00",
+          "end": "02:28",
+          "seconds": 0,
+          "topic": "Tổng quan kiến trúc Transformer (Attention Is All You Need 2017) & 4 khối chính",
+          "keywords": ["attention is all you need", "2017", "google brain", "machine translation", "dich may", "bon thanh phan", "tong quan transformer"],
+          "text": "Giới thiệu bài báo Attention Is All You Need năm 2017 của Google Brain đặt nền móng cho kiến trúc Transformer qua bài toán Dịch máy (Machine Translation) với 4 thành phần lớn: Embedding, Encoder, Decoder và Predicting Head."
+        },
+        {
+          "code": "V3-S02",
+          "start": "02:28",
+          "end": "03:53",
+          "seconds": 148,
+          "topic": "Định nghĩa Token, Tokenization (subword, SOS, EOS) và vị trí Embedding",
+          "keywords": ["tokenization", "subword", "don vi nho nhat", "beauti", "sos", "eos", "byte pair encoding"],
+          "text": "Giải thích Token là đơn vị dữ liệu nhỏ nhất đưa vào mô hình (có thể là từ, đoạn từ subword như beauti-ful, khoảng trắng hay token đặc biệt SOS, EOS) và quy trình Tokenization cùng hai vị trí khối Embedding ở đầu Encoder và Decoder."
+        },
+        {
+          "code": "V3-S03",
+          "start": "03:53",
+          "end": "06:53",
+          "seconds": 233,
+          "topic": "Token Embedding + Positional Embedding (sin/cos) cho xử lý song song (d_model = 512)",
+          "keywords": ["positional embedding", "positional encoding", "token embedding", "vi tri", "xu ly song song", "sin", "cos", "word2vec", "glove", "fasttext"],
+          "text": "Trong khối Embedding với số chiều d_model = 512, mỗi token có một Token Embedding thể hiện ngữ nghĩa (tương tự Word2Vec, GloVe, FastText) cộng với Positional Embedding dùng hàm sin/cos để mã hoá thứ tự vị trí vì Transformer xử lý song song toàn bộ chuỗi thay vì tuần tự."
+        },
+        {
+          "code": "V3-S04",
+          "start": "06:53",
+          "end": "11:11",
+          "seconds": 413,
+          "topic": "Cơ chế Self-Attention trong Encoder: tạo vector Query và Key từ W^Q, W^K",
+          "keywords": ["self-attention", "self attention", "query matrix", "key matrix", "wq", "wk", "dat cau hoi"],
+          "text": "Encoder nhận ma trận embedding để đi vào tầng Self-Attention, nơi các token tương tác đặt câu hỏi với toàn bộ token xung quanh. Mỗi vector 512 chiều được nhân với các ma trận trọng số có thể học W^Q và W^K kích thước 512x512 để tạo vector Query và Key."
+        },
+        {
+          "code": "V3-S05",
+          "start": "11:11",
+          "end": "14:32",
+          "seconds": 671,
+          "topic": "Tính tương đồng Dot Product QK^T, chia sqrt(512) ổn định gradient và chuẩn hoá Softmax",
+          "keywords": ["dot product", "tich vo huong", "cosine similarity", "sqrt", "can bac hai", "512", "softmax", "chuan hoa ma tran e"],
+          "text": "Độ tương đồng giữa Query và Key được tính bằng tích vô hướng (Dot Product, liên hệ Cosine Similarity) tạo ra ma trận điểm E kích thước NxN, sau đó chia cho căn bậc hai của 512 (sqrt(d_model)) để tránh giá trị quá lớn làm mất ổn định gradient rồi đưa qua Softmax theo từng hàng."
+        },
+        {
+          "code": "V3-S06",
+          "start": "14:32",
+          "end": "18:11",
+          "seconds": 872,
+          "topic": "Vector Value (W^V), ẩn dụ Google Q-K-V và công thức Context Vector C = Softmax(QK^T/sqrt(d))V",
+          "keywords": ["value vector", "wv", "google", "query key value", "context vector", "tong co trong so", "how are you doing"],
+          "text": "Trực quan hoá bộ ba Query-Key-Value qua ví dụ tìm kiếm Google (Query là câu hỏi, Key là tiêu đề bài viết, Value là nội dung bài) với vector Value sinh từ ma trận W^V. Nhân ma trận trọng số Softmax với V (ví dụ câu How are you doing ?) thu được Context Vector C giàu ngữ cảnh."
+        },
+        {
+          "code": "V3-S07",
+          "start": "18:11",
+          "end": "22:11",
+          "seconds": 1091,
+          "topic": "Multi-head Attention: 8 head (d_head = 64), Concatenate và nhân W^O",
+          "keywords": ["multi-head attention", "multi head", "8 head", "d_head", "64", "concatenate", "wo", "random forest"],
+          "text": "Multi-head Attention dùng nhiều đầu attention chạy song song (tương tự ý tưởng tổ hợp nhiều góc nhìn như Random Forest) để vừa học quan hệ đại từ-danh từ, vừa học chủ-vị hay nhân-quả. Kiến trúc gốc dùng 8 head (mỗi head 512/8 = 64 chiều), nối kết quả (Concatenate) lại thành 512 chiều rồi nhân với ma trận W^O."
+        },
+        {
+          "code": "V3-S08",
+          "start": "22:11",
+          "end": "25:40",
+          "seconds": 1331,
+          "topic": "Position-wise Feed-Forward Network (FFN): lớp tuyến tính 512->2048->512 và ReLU",
+          "keywords": ["feed-forward", "feed forward", "ffn", "2048", "relu", "phi tuyen", "dense", "linear layer", "w1", "w2"],
+          "text": "Sau Self-Attention là mạng Position-wise Feed-Forward Network (FFN) gồm hai lớp tuyến tính W1 (mở rộng 512 lên 2048 chiều) và W2 (thu về 512 chiều) với hàm kích hoạt ReLU ở giữa nhằm bổ sung biến đổi phi tuyến và tinh chỉnh biểu diễn từng token độc lập."
+        },
+        {
+          "code": "V3-S09",
+          "start": "25:40",
+          "end": "28:34",
+          "seconds": 1540,
+          "topic": "Residual Connection (chống Vanishing Gradient) & Layer Normalization trong 6 Encoder Block",
+          "keywords": ["residual connection", "resnet", "vanishing gradient", "thang may", "layer normalization", "layer-norm", "6 encoder block"],
+          "text": "Kết nối phần dư (Residual Connection, kế thừa từ bài báo ResNet năm 2015, ví như đường thang máy truyền thẳng gradient) giúp khắc phục triệt tiêu gradient (Vanishing Gradient), đi cùng Layer Normalization chuẩn hoá phân phối theo từng lớp; toàn bộ được xếp chồng thành 6 Encoder Block."
+        },
+        {
+          "code": "V3-S10",
+          "start": "28:34",
+          "end": "31:24",
+          "seconds": 1714,
+          "topic": "Decoder sinh chuỗi tự hồi quy (Autoregressive) và Cross-Attention Layer (Q từ Decoder, K/V từ Encoder)",
+          "keywords": ["decoder", "autoregressive", "tu hoi quy", "cross-attention", "cross attention", "chuoi dich", "chuoi nguon"],
+          "text": "Khối Decoder gồm 6 block hoạt động theo cơ chế tự hồi quy (Autoregressive) sinh từng token dựa trên lịch sử trước đó. Điểm khác biệt ở giữa Decoder là tầng Cross-Attention nơi Query lấy từ chuỗi đích (Decoder), còn Key và Value lấy từ đầu ra chuỗi nguồn (Encoder)."
+        },
+        {
+          "code": "V3-S11",
+          "start": "31:24",
+          "end": "33:41",
+          "seconds": 1884,
+          "topic": "Masked Self-Attention (Causal Mask với -inf) chặn nhìn trộm token tương lai",
+          "keywords": ["masked self-attention", "causal mask", "attention mask", "am vo cung", "-inf", "nhin trom", "tuong lai", "causal language modeling"],
+          "text": "Khi huấn luyện song song trên chuỗi đích trong bài toán Causal Language Modeling, Decoder dùng Masked Self-Attention (Causal Mask): cộng ma trận mặt nạ M chứa giá trị âm vô cùng (-inf) ở nửa tam giác trên để sau Softmax trọng số thành 0, ngăn token hiện tại nhìn trộm các token tương lai."
+        },
+        {
+          "code": "V3-S12",
+          "start": "33:41",
+          "end": "35:52",
+          "seconds": 2021,
+          "topic": "Predicting Head: ánh xạ 512 sang Vocabulary size (37.000/32.000) và chọn token qua ArgMax",
+          "keywords": ["predicting head", "prediction head", "w_pred", "vocabulary size", "37000", "32000", "argmax", "start of sequence", "end of sequence"],
+          "text": "Ở cuối kiến trúc, Predicting Head dùng ma trận W_pred ánh xạ vector 512 chiều sang không gian kích thước bộ từ vựng (Vocabulary size khoảng 37.000 token Anh-Đức hoặc 32.000 token Anh-Pháp), sau đó dùng ArgMax chọn token có điểm cao nhất lặp lại từ SOS cho đến khi gặp EOS."
+        }
+      ]
+    }
+  ]
+}
