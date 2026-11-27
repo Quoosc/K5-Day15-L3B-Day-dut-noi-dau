@@ -1,12 +1,12 @@
 {
   "dataset_version": "2.0",
-  "description": "Transcript trích xuất trực tiếp từ 3 video bài giảng thực tế trong thư mục my-doc/ dùng cho lát cắt Smart Video Concept Seek (35 phân đoạn có mốc thời gian).",
+  "description": "Transcript trích xuất trực tiếp từ 3 video bài giảng thực tế trong thư mục data/video/ dùng cho lát cắt Smart Video Concept Seek (35 phân đoạn có mốc thời gian).",
   "videos": [
     {
       "video_id": "VID-01",
       "title": "Tìm hiểu về thuật ngữ Mounted & Unmounted",
       "speaker": "F8 Official",
-      "source_file": "my-doc/Tìm hiểu về thuật ngữ Mounted & Unmounted.mp4",
+      "source_file": "data/video/Tìm hiểu về thuật ngữ Mounted & Unmounted.mp4",
       "duration": "05:36",
       "video_url": "https://course.local/videos/VID-01",
       "segments": [
@@ -70,7 +70,7 @@
       "video_id": "VID-02",
       "title": "Tất cả những gì bạn cần biết về Harness Engineering",
       "speaker": "Việt Nguyễn AI",
-      "source_file": "my-doc/Tất cả những gì bạn cần biết về Harness Engineering.mp4",
+      "source_file": "data/video/Tất cả những gì bạn cần biết về Harness Engineering.mp4",
       "duration": "38:56",
       "video_url": "https://course.local/videos/VID-02",
       "segments": [
@@ -233,7 +233,7 @@
       "video_id": "VID-03",
       "title": "Tất cả những gì bạn cần biết về Transformer trong 35 phút",
       "speaker": "Việt Nguyễn AI",
-      "source_file": "my-doc/Tất cả những gì bạn cần biết về Transformer trong 35 phút.mp4",
+      "source_file": "data/video/Tất cả những gì bạn cần biết về Transformer trong 35 phút.mp4",
       "duration": "35:52",
       "video_url": "https://course.local/videos/VID-03",
       "segments": [

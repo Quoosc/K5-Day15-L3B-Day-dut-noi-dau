@@ -65,10 +65,12 @@ demo_origin = ""
 
 
 def _passage_link(video, seconds):
+    if demo_origin:
+        return f"{demo_origin}/videos/{video['video_id']}?t={seconds}"
     source = _DATA_PATH.parents[1] / video["source_file"]
     if source.is_file():
-        return f"{source.as_uri()}#t={seconds}"
-    base = f"{demo_origin}/videos/{video['video_id']}" if demo_origin else video["video_url"]
+        return f"{source.as_uri()}?t={seconds}#t={seconds}"
+    base = video["video_url"]
     return f"{base}?t={seconds}"
 
 
