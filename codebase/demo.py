@@ -6,11 +6,11 @@ from agent import answer
 _lock = Lock()
 
 
-def ask(question):
+def ask(question, video_id="", clarification=""):
     with _lock:
         tracing.begin("demo")
         try:
-            result = answer(question)
+            result = answer(question, video_id, clarification)
         finally:
             stats, _ = tracing.end()
     return result, stats

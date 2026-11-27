@@ -145,7 +145,7 @@ flowchart LR
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-|  |  |  |
+| 27/11 · chuẩn bị CP3–CP4 | Quốc hoàn thiện demo Đúng đoạn, nối Groq, giới hạn chờ khi 429, hỗ trợ sửa gợi ý và xem đúng mốc. | Lượt 1: B16, B17, B26–B29 lỗi 429. Lượt 2 giãn nhịp hết lỗi kỹ thuật. Chi tiết phiên bản và thử nghiệm UI: codebase/DEMO.md. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

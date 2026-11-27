@@ -1,3 +1,7 @@
+## Chạy Đúng đoạn trên máy demo
+
+Chạy `python run.py`, mở địa chỉ **Giao diện demo** trong terminal. Học viên dán câu vừa làm sai, xem căn cứ và mở video tại đúng giây. [Hướng dẫn Groq và kịch bản thử](codebase/DEMO.md) · [Video dự phòng 30 giây](slides/quoc-demo-30s.mp4).
+
 > Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục. **Mục 0 xoá đi sau khi tạo repo xong.**
 > Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
 

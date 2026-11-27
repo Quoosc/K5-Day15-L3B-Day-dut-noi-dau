@@ -4,7 +4,7 @@ import json
 import re
 
 from ai import call_model
-from tools import list_video_topics, search_transcript
+from tools import _normalize, list_video_topics, search_transcript
 from tracing import note
 
 SYSTEM = (
@@ -46,7 +46,7 @@ _AMBIGUOUS_PATTERNS = [
 def _is_cheating_or_attack(text: str) -> bool:
     """Phát hiện yêu cầu xin đáp án hoặc tấn công ép đổi vai / bịa nguồn."""
     lower = text.lower()
-    return any(re.search(pat, lower, re.IGNORECASE) for pat in _CHEATING_PATTERNS)
+    return any(re.search(_normalize(pat), _normalize(lower), re.IGNORECASE) for pat in _CHEATING_PATTERNS)
 
 
 def _is_ambiguous(text: str, hits: list) -> bool:
@@ -87,20 +87,27 @@ def _format_grounded_hint(hit: dict, prefix: str = "") -> str:
     return "\n".join(lines)
 
 
-def answer(text: str) -> dict:
+def answer(text: str, video_id: str = "", clarification: str = "") -> dict:
     cleaned = (text or "").strip()
     refusal = "Mình không thể chọn đáp án hộ hoặc tạo mốc thời gian giả."
-    blocked = _is_cheating_or_attack(cleaned)
-    hits = search_transcript(cleaned, top_k=3) if cleaned else []
-    if not blocked and _is_ambiguous(cleaned, hits):
+    blocked = _is_cheating_or_attack(cleaned + " " + clarification)
+    query = clarification.strip() or cleaned
+    hits = search_transcript(query, top_k=3, video_id=video_id) if query else []
+    if not blocked and _is_ambiguous(query, hits):
         note("g10_hoi_lai")
-        menu = _format_video_menu(list_video_topics())
-        return {"output": "Bạn cho biết tên bài hoặc khái niệm muốn xem lại nhé.\n" + menu}
+        topics = list_video_topics(video_id)
+        menu = _format_video_menu(topics)
+        words = set(re.findall(r"[a-z]{4,}", _normalize(query)))
+        ranked = sorted(topics, key=lambda t: -len(words & set(_normalize(t["topic"]).split())))
+        choices = [t["topic"] for t in ranked[:3]] if hits or "context" in words else [
+            next(t["topic"] for t in topics if t["video_id"] == v) for v in dict.fromkeys(t["video_id"] for t in topics)]
+
+        return {"output": "Bạn cho biết tên bài hoặc khái niệm muốn xem lại nhé.\n" + menu, "choices": choices}
 
     unavailable = "Chưa tìm được đoạn có đủ căn cứ trong ba bài giảng. Bạn có thể gửi thêm tên bài hoặc hỏi trợ giảng."
     if hits:
         candidates = [{k: hit[k] for k in ("code", "topic", "text")} for hit in hits]
-        prompt = json.dumps({"question": cleaned, "candidates": candidates}, ensure_ascii=False)
+        prompt = json.dumps({"question": cleaned, "clarification": clarification, "candidates": candidates}, ensure_ascii=False)
         response = call_model(SYSTEM, prompt)
         if response["model"] == "fake":
             code = hits[0]["code"]
@@ -115,6 +122,8 @@ def answer(text: str) -> dict:
                 note("chon_doan: " + hit["code"])
                 return {"output": _format_grounded_hint(hit, refusal if blocked else ""),
                         "passage": {"video_id": hit["video_id"], "seconds": hit["seconds"],
-                                    "start": hit["start"], "end": hit["end"], "code": hit["code"]}}
+                                    "start": hit["start"], "end": hit["end"], "code": hit["code"],
+                                    "topic": hit["topic"], "text": "" if blocked else hit["text"],
+                                    "title": hit["video_title"], "refusal": refusal if blocked else ""}}
         note("khong_co_ma_doan_hop_le")
     return {"output": (refusal + " " if blocked else "") + unavailable}

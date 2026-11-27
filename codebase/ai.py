@@ -54,11 +54,17 @@ def post_json(url: str, headers: dict, body: dict, timeout: int = 60) -> dict:
         method="POST",
         headers=dict({"Content-Type": "application/json", "User-Agent": "SmartVideoSeek/1.0"}, **headers),
     )
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        raise RuntimeError("Groq HTTP %d" % e.code) from None
+    import time
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            delay = e.headers.get("Retry-After", "4")
+            if e.code == 429 and attempt < 2 and delay.replace(".", "", 1).isdigit() and float(delay) <= 25:
+                time.sleep(max(1, float(delay)) + 0.5)
+                continue
+            raise RuntimeError("Groq HTTP %d" % e.code) from None
 
 
 def call_groq(system: str, user: str) -> dict:

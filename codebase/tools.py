@@ -3,6 +3,8 @@
 import json
 import re
 import unicodedata
+from difflib import get_close_matches
+from collections import Counter
 from pathlib import Path
 
 from tracing import TOOLS, tool  # noqa: F401
@@ -75,15 +77,33 @@ def _passage_link(video, seconds):
 
 
 @tool
-def search_transcript(query: str, top_k: int = 3) -> list:
+def search_transcript(query: str, top_k: int = 3, video_id: str = "") -> list:
     """search_transcript | Input: query (str), top_k (int) | Output: danh sách phân đoạn video khớp (video_id, video_title, code, start, end, seconds, topic, text, link) | Tác động ra ngoài: Không (chỉ đọc data/lecture_transcripts.json)."""
     norm_q = _normalize(query)
     q_tokens = _tokens(norm_q)
     if not q_tokens and not norm_q.strip():
         return []
 
+    videos = [v for v in load_videos() if not video_id or v["video_id"] == video_id]
+    # Recover one mistyped technical term using only vocabulary in the source.
+    vocabulary = {w for v in videos for seg in v["segments"] for kw in seg["keywords"]
+                  for w in _tokens(_normalize(kw)) if len(w) >= 5}
+    for word in sorted(q_tokens - vocabulary):
+        if len(word) >= 5:
+            near = get_close_matches(word, vocabulary, n=1, cutoff=0.86)
+            if near:
+                norm_q += " " + near[0]
+                q_tokens.update(near)
+    # Rare consecutive words preserve meaning that unigram stop words lose.
+    def phrases(value):
+        words = re.findall(r"[a-z0-9]+", _normalize(value))
+        return set(zip(words, words[1:]))
+    query_phrases = phrases(query)
+    segment_phrases = {seg["code"]: phrases(seg["topic"] + " " + seg["text"])
+                       for v in videos for seg in v["segments"]}
+    frequencies = Counter(pair for pairs in segment_phrases.values() for pair in pairs)
     scored: list[tuple[int, dict]] = []
-    for video in load_videos():
+    for video in videos:
         video_id = video.get("video_id", "")
         video_title = video.get("title", "")
         for seg in video.get("segments", []):
@@ -98,6 +118,9 @@ def search_transcript(query: str, top_k: int = 3) -> list:
             score += 2 * len(q_tokens & topic_tokens)
             score += len(q_tokens & text_tokens)
 
+            overlap = query_phrases & segment_phrases[seg["code"]]
+            if q_tokens & (topic_tokens | text_tokens):
+                score += min(8, 5 * sum(frequencies[pair] <= 2 for pair in overlap))
             if score >= 6:
                 scored.append((
                     score,

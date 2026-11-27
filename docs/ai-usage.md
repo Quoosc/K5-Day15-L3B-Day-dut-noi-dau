@@ -9,3 +9,6 @@ Tài liệu ghi nhận minh bạch các phần có sự hỗ trợ của công c
 | Bộ câu thử & tiêu chuẩn đánh giá (`eval/benchmark.csv`, `eval/metric_spec.yaml`, `data/DATA_CARD.md`) | Đề xuất 30 câu thử chi tiết bám sát 3 video (14 `thuong`, 11 `kho`, 5 `tu_choi` với 3 tấn công và câu bẫy từ khoá) và 4 metric đo đạc; toàn bộ gắn nhãn trung thực `tu_viet:...`. | Nhóm rà soát nội dung từng câu thử và giữ nguyên chuẩn "đạt" trong `spec.md §7` trước hạn 19:30 Thứ Sáu. |
 
 > Quy tắc minh bạch: Không tự bịa người được phỏng vấn (`P1`, `P2`...), không giả mạo dữ liệu BTC và không chạy đánh giá thật khi chưa chuyển `MODEL_PROVIDER` sang model thật ở CP3.
+
+### Phần triển khai của Quốc — CP3 và chuẩn bị CP4
+Codex hỗ trợ viết frontend Đúng đoạn, tích hợp Groq, rà hành vi thiếu căn cứ, xử lý 429 và ghi video từ lượt chạy thật. Các kiểm tra kỹ thuật và giới hạn được ghi trong codebase/DEMO.md. Việc chấm nội dung theo benchmark thuộc bước rà soát riêng của nhóm.

@@ -28,14 +28,19 @@ def serve_passages(videos):
                 size = int(self.headers.get("Content-Length", "0"))
                 if not 0 < size <= 20000:
                     raise ValueError
-                question = json.loads(self.rfile.read(size))["question"]
+                data = json.loads(self.rfile.read(size))
+                question = data["question"]
+                scope = data.get("scope", "")
+                clarification = data.get("clarification", "")
+                if scope not in [""] + [v["video_id"] for v in videos] or not isinstance(clarification, str) or len(clarification) > 500:
+                    raise ValueError
                 if not isinstance(question, str) or not 0 < len(question.strip()) <= 2500:
                     raise ValueError
             except (ValueError, KeyError, TypeError):
                 self.send_error(400)
                 return
             try:
-                result, stats = ask(question)
+                result, stats = ask(question, scope, clarification)
                 payload = json.dumps(dict(result, stats=stats), ensure_ascii=False).encode()
             except Exception:
                 self.send_error(502)
@@ -49,6 +54,21 @@ def serve_passages(videos):
 
         def do_GET(self):
             url = urlsplit(self.path)
+            assets = {f"/frames/{v['video_id']}.jpg": ("image/jpeg", root / "codebase" / "frames" / (v["video_id"] + ".jpg")) for v in videos}
+            assets.update({"/studio.css": ("text/css", root / "codebase/studio.css"), "/studio.js": ("text/javascript", root / "codebase/studio.js")})
+            if url.path in assets or url.path == "/catalog":
+                if url.path == "/catalog":
+                    catalog = [{**{k: v[k] for k in ("video_id", "title", "duration", "speaker")}, "count": len(v["segments"])} for v in videos]
+                    mime, body = "application/json", json.dumps(catalog, ensure_ascii=False).encode()
+                else:
+                    mime, path = assets[url.path]
+                    body = path.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", mime)
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+                return
             if url.path == "/":
                 body = (root / "codebase" / "demo.html").read_bytes()
                 self.send_response(200)
