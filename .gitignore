@@ -36,3 +36,6 @@ evidence/**/raw-*
 data-btc
 data-btc/
 my-doc/
+# Data BTC cấp cục bộ: chỉ dùng để chạy script, không commit bản nguồn
+/data/preclass/
+/data/training-ops/

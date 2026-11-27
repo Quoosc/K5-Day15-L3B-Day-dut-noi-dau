@@ -11,23 +11,23 @@ Data BTC cấp đã dùng (không commit nguyên file): `data/preclass/chat.csv`
 - Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (một vai cụ thể):
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì:
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+- Người dùng chính (vai mục tiêu, chưa xác nhận qua phỏng vấn): học viên L3B đang học bài pre-class, gặp câu hỏi/khái niệm chưa hiểu và cần xem lại phần giải thích trong video.
+- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): Tìm và xem đoạn bài giảng giải thích khái niệm đang vướng trong lúc học pre-class để hiểu bài và tự làm tiếp câu hỏi.
+- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: Theo ghi chép P1, người học đọc phản hồi dưới video, xem lại đoạn liên quan, tìm ví dụ trên Google hoặc hỏi công cụ khác rồi đối chiếu với bài. Phản hồi có ví dụ nhưng đôi khi còn tổng quát, chưa sát bài; P1 vẫn dùng cách này vì cuối cùng hiểu được phần lớn và tự giải thích lại được. P2/P3 chỉ có ghi chép tóm tắt về cách xoay xở; chưa có tình huống chi tiết. Xem `evidence/summary.md`.
+- Pain (KHÔNG chữ AI): P1 gặp khái niệm khó khi học bài AI Agent; phản hồi dưới video đôi khi chưa đủ cụ thể nên phải xem lại bài và tự tìm thêm ví dụ, mất khoảng 10–15 phút ở lần gần nhất theo ghi chép. Chưa xác nhận đây là tình huống vừa làm sai quiz rồi phải tua nhiều đoạn.
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`, `evidence/data-mining.md`): 98/1.091 lượt hỏi (9,0%) có cờ `missing_context`, nhưng cờ không đo câu trả lời sai hay hành vi tua lại. Data chỉ có 7 câu trả lời video quiz lần đầu từ 2 người; 2 lần sai của cùng 1 người và 0/2 có seek cùng video trong 15 phút. Ba ghi chép phỏng vấn nói về khó khăn chung, chưa xác nhận đúng nhóm L3B ngoài nhóm hay pain quiz-sai.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| Trả lời câu hỏi dưới video bằng ví dụ cụ thể, sát khái niệm đang học | P1 kể một lần gần đây; chưa mã hoá đủ 3 người cho đúng hướng này | P1 báo khó khăn chung 3–4 lần/tháng; chưa xác nhận cùng một kiểu | Lần gần nhất khoảng 10–15 phút (tự thuật P1; phạm vi rộng) | Chưa tính được; thiếu tần suất và thời gian cho đúng pain | Có thể làm trong phạm vi demo | Chưa chọn theo impact |
+| Tìm đúng đoạn video sau khi làm sai quiz | 0/2 lần sai có seek cùng video trong 15 phút; cả hai lần thuộc 1 người | Chỉ có 2 lần sai trong data; chưa ước lượng được tần suất thường gặp | Chưa có số | Chưa tính được; N quá nhỏ | Có thể làm về kỹ thuật; pain chưa xác nhận | Đang là phạm vi prototype, chưa chứng minh là hướng đau nhất |
+| Hỏi lại/thu hẹp câu hỏi khi lượt hỏi thiếu ngữ cảnh | 98/1.091 lượt có cờ hệ thống; không phải số người xác nhận pain | Cờ ở 9,0% lượt hỏi; không đo số lần trải nghiệm xấu | Không có nội dung hỏi/đáp hay thời gian xử lý | Không tính được từ cờ này | Có thể làm trong phạm vi demo | Chưa chọn theo impact |
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ phút = __ — nguồn từng thừa số: __ (không có nguồn thì ghi rõ *(tự ước tính)*)
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
+- **Impact / tháng** của hướng chọn: chưa tính được — chưa có số người gặp, tần suất và thời gian cho cùng một pain đã xác nhận; không nhân số `missing_context` với thời gian phỏng vấn.
+- Hướng chưa chọn: chưa loại hướng nào bằng so sánh impact; hướng “sau khi sai quiz → tìm đoạn xem lại” vẫn là giả thuyết thiết kế vì chưa có bằng chứng trực tiếp.
+- Số lần / tháng của từng kiểu người dùng: P1 3–4, P2 2–3, P3 1–2 lần khó khăn chung theo ghi chép; chưa xác nhận các lần đó thuộc cùng pain hay đúng người dùng mục tiêu (`evidence/summary.md`).
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì

@@ -1,22 +1,24 @@
 # Tổng hợp bằng chứng pain — trạng thái tại CP2
 
-> Cập nhật theo ghi chép phỏng vấn do nhóm cung cấp. Chưa có khảo sát; cần bổ sung ngày phỏng vấn và xác nhận vai/lớp, ngoài nhóm của người tham gia.
+> Cập nhật theo ba ghi chép phỏng vấn và chín dòng khảo sát nhóm cung cấp. Cả hai nguồn đều còn thiếu thông tin xác minh mẫu; xem các giới hạn bên dưới.
 
 ## 1. Nguồn đã dùng
 
 | Nguồn | Đạt ngưỡng? | File |
 |---|---|---|
-| Đào data (x/N, cách đếm chạy lại, ≥5 ví dụ) | Có về yêu cầu đếm và ví dụ; sức nặng pain còn hạn chế vì chỉ báo là cờ hệ thống chưa kiểm chứng | `evidence/data-mining.md` |
-| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | Có ghi chép của 3 người; chưa xác nhận trong repo vai/lớp và ngoài nhóm | Phần ghi chép dưới đây |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | Chưa có dữ liệu | Chưa có kết quả |
+| Đào data (x/N, cách đếm chạy lại, ≥5 ví dụ) | Đạt ngưỡng đếm và ví dụ; có 98/1.091 cờ, cùng 0/2 lượt sai nối với seek cùng video trong 15 phút. Pain mục tiêu vẫn chưa được xác nhận do N nhỏ | `evidence/data-mining.md` + `evidence/count_preclass.py` |
+| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | Có ghi chép 3 người; chưa xác nhận vai/lớp, ngoài nhóm, ngày và thời lượng phỏng vấn | `evidence/interviews/P1.md`…`P3.md` |
+| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | Chưa đạt: có 9 dòng phản hồi, chưa xác nhận điều kiện mẫu | `evidence/survey/results.csv`; giới hạn nguồn ở `evidence/survey/questions.md` |
+
+Để tiện đọc theo từng người, có 9 hồ sơ chuyển thể giả lập từ các dòng S001–S009 ở `evidence/interviews/simulated_from_survey/`. Các diễn biến cụ thể được thêm trong hồ sơ là tình huống hư cấu để minh họa, không có trong sheet. Đây không phải phỏng vấn đã diễn ra, không phải nguồn bằng chứng độc lập và không được cộng vào ngưỡng phỏng vấn.
 
 ## 2. Số chính
 
-- Đào data: 98/1.091 (9,0%) câu hỏi gắn cờ `missing_context=true`; 49/143 (34,3%) người có câu hỏi có ít nhất một lượt gắn cờ. Chi tiết và giới hạn: `evidence/data-mining.md`.
+- Đào data: 98/1.091 (9,0%) câu hỏi gắn cờ `missing_context=true`; 49/143 (34,3%) người có câu hỏi có ít nhất một lượt gắn cờ. Trong data có 7 lượt trả lời video quiz lần đầu từ 2 người; 2 lần sai của cùng một người và 0/2 có seek cùng video trong 15 phút. Chi tiết và giới hạn: `evidence/data-mining.md`.
 - Phỏng vấn: 3 người được ghi nhận là có gặp khó khăn (3/3 trong mẫu nhỏ); P1 báo 3–4 lần/tháng, P2 2–3 lần/tháng, P3 1–2 lần/tháng. Thời gian xử lý lần gần nhất lần lượt khoảng 10–15 phút, 20 phút và 5–10 phút. Đây là tự thuật, không đại diện toàn bộ học viên.
-- Khảo sát: chưa thực hiện/không có log.
+- Khảo sát: n=9 dòng phản hồi ngày 27/11. Q1 ghi nhận 8/9 có một dạng khó khăn gần đây và 1/9 chọn không gặp khó; kết quả 6/9 hoàn toàn, 3/9 một phần. Tần suất: 1/tháng 2/9, 2–5/tháng 3/9, >5/tháng 4/9. Thời gian: 10–20 phút 6/9, 1 giờ 1/9, >1 giờ 1/9, 20–40 phút 1/9. Mẫu nhỏ hơn 10 nên chỉ ghi x/n. Tư cách L3B ngoài nhóm chưa xác nhận; đây không phải tỷ lệ của lớp.
 
-Ghi chép hiện có không xác định ngày phỏng vấn, vai/lớp hoặc việc người tham gia có ngoài nhóm hay không. Chưa có trích dẫn được xác nhận là nguyên văn. Năm mã sự kiện ở `data-mining.md` là ví dụ bản ghi đã ẩn danh, không phải lời chứng minh pain.
+Ghi chép phỏng vấn hiện có không xác định ngày, vai/lớp hoặc việc người tham gia có ngoài nhóm hay không. Chín phản hồi khảo sát cũng thiếu form gốc, kênh và điều kiện mẫu; xem `evidence/survey/questions.md`. Chưa có trích dẫn phỏng vấn được xác nhận là nguyên văn. Năm mã sự kiện ở `data-mining.md` là ví dụ bản ghi đã ẩn danh, không phải lời chứng minh pain.
 
 | Mã | Vai (cần bổ sung) | Gặp pain? | Số lần / 1 tháng qua | Thời gian lần gần nhất | Đang xoay xở bằng |
 |---|---|---|---|---|---|
@@ -24,21 +26,23 @@ Ghi chép hiện có không xác định ngày phỏng vấn, vai/lớp hoặc v
 | P2 | Chưa ghi nhận | Có | 2–3 lần | Khoảng 20 phút | Đọc tài liệu, hỏi bạn bè và tra cứu thêm |
 | P3 | Chưa ghi nhận | Có | 1–2 lần | Khoảng 5–10 phút | Xem lại đoạn video và ghi chú; phần ghi chép còn thiếu |
 
+Tần suất và thời gian trên là tự thuật về khó khăn học tập nói chung; ghi chép chưa xác nhận cả ba người đang nói về cùng pain hoặc về việc làm sai quiz rồi tua lại video. Mỗi người có file riêng trong `evidence/interviews/`; vai/lớp, ngoài nhóm, ngày và thời lượng phỏng vấn còn thiếu.
+
 ## 3. Trích dẫn / ví dụ
 
 Chưa có trích dẫn được xác nhận là nguyên văn. Ghi chép P1 nêu lần gần đây khi học AI Agent: bạn muốn hiểu sự khác nhau giữa Workflow và AI Agent; phản hồi có ví dụ nhưng đôi khi còn tổng quát, nên bạn xem lại video, tìm thêm ví dụ rồi đối chiếu với bài. P1 cho biết đã hiểu phần lớn và tự giải thích được sự khác nhau. Đây là nội dung ghi chép/paraphrase, không đặt trong ngoặc kép. Ghi chép P2 và P3 hiện chỉ có thông tin tóm tắt trong bảng trên. Năm mã ở `data-mining.md` là ví dụ sự kiện, không có nội dung chat để trích.
 
 ## 4. Các nguồn có khớp nhau không
 
-Ba người được ghi nhận tự báo cáo gặp khó khăn và phải dùng cách bổ sung như xem lại bài, tra cứu hoặc hỏi người khác. Điều này gợi ý việc kiểm tra chéo câu trả lời, nhưng chưa xác nhận rằng các trải nghiệm đó tương ứng với cờ `missing_context` trong nhật ký; hai nguồn không nối được theo từng người/lượt hỏi.
+Ba người trong ghi chép phỏng vấn tự báo cáo gặp khó khăn học tập; khảo sát ghi nhận 8/9 câu trả lời có khó khăn gần đây, gồm chưa hiểu bài, khó làm quiz hoặc muốn biết thêm ngoài video. Cả hai nguồn gợi ý người học xem lại, tra cứu hoặc hỏi thêm, nhưng chưa xác nhận trải nghiệm tương ứng với cờ `missing_context` hay pain hẹp sau khi sai quiz. Không thể khái quát survey vì n=9 và điều kiện mẫu chưa xác minh; các nguồn không nối được theo từng người/lượt hỏi.
 
 ## 5. Kết luận
 
-Ghi chép ban đầu ủng hộ việc một số người học cần xem lại hoặc tìm thêm nguồn sau khi hỏi, nhưng mẫu chỉ có 3 người và thông tin vai/lớp, cách tuyển người, ngày phỏng vấn còn thiếu. P1 không nói đây là lần làm sai câu quiz hay phải tua qua nhiều đoạn; vì vậy chưa xác nhận lát cắt CP1 “sau câu sai → tìm đoạn để xem lại”. Chưa đủ để khái quát mức độ pain hoặc khẳng định nguyên nhân là trợ giảng thiếu ngữ cảnh. Cần bổ sung thông tin người tham gia và hỏi/đếm đúng tình huống sau khi làm sai quiz.
+Kết luận CP2: giả thuyết hẹp **phải kiểm lại/thu hẹp**, hiện chưa được xác nhận. Data chỉ có 2 lần đầu trả lời sai video quiz từ cùng một người, và không có seek cùng video trong 15 phút sau đó (0/2); N quá nhỏ để kết luận pain đúng hay sai. Cờ `missing_context` là chỉ báo kỹ thuật riêng, không lấp được khoảng trống này. Phỏng vấn P1 gợi ý một vấn đề rộng hơn—phản hồi đôi lúc tổng quát khiến người học tìm thêm ví dụ—nhưng chưa xác nhận đúng nhóm người dùng và không đủ để kết luận cho cả lớp. Cần hỏi đúng học viên L3 ngoài nhóm và ghi thêm các lần thực tế.
 
 ## Thông tin cần hoàn thiện
 
-Ghi ngày phỏng vấn, xác nhận mỗi người là học viên L3 ngoài nhóm, và hoàn thiện ghi chép P2/P3. Không thêm nội dung chưa được người tham gia cung cấp.
+Ghi ngày, thời lượng và cách phỏng vấn; xác nhận mỗi người là học viên L3 ngoài nhóm; bổ sung câu hỏi đã hỏi và chi tiết lần gần nhất cho P2/P3. Không thêm nội dung chưa được người tham gia cung cấp.
 
 ## Mẫu câu hỏi phỏng vấn
 

@@ -40,5 +40,5 @@
 | Dùng để làm gì | Đếm lượt hỏi trợ giảng và cờ `missing_context` do hệ thống ghi; chi tiết ở `evidence/data-mining.md`. |
 | Nguồn | Data BTC cấp: `K5-L3-Day15-AI-Product-Hackathon/data/preclass/chat.csv` và `events.csv`; dữ liệu 05–25/11/2026. |
 | Xử lý | Đếm `chat.kind=question`, nối `chat.id` với `events.ref_id` của `agent_replied`, đọc `data.missing_context`; script chạy lại: `evidence/count_preclass.py`. Không lưu CSV gốc trong repo. |
-| Kết quả | 1.091 câu hỏi; 98 có cờ `missing_context=true`. |
-| Giới hạn | Cờ hệ thống chưa được kiểm chứng là lỗi hay trải nghiệm đau; không có nội dung hỏi/đáp. Chỉ phản ánh 143 người có ít nhất một câu hỏi, không đại diện toàn bộ lớp. |
+| Kết quả | 1.091 câu hỏi; 98 có cờ `missing_context=true`. 7 câu trả lời quiz video lần đầu từ 2 người; 2 sai của cùng một người, không có seek cùng video trong 15 phút tiếp theo. |
+| Giới hạn | Cờ hệ thống chưa được kiểm chứng là lỗi hay trải nghiệm đau; không có nội dung hỏi/đáp. Chỉ phản ánh 143 người có ít nhất một câu hỏi, không đại diện toàn bộ lớp. Phép đếm sau câu sai chỉ có 2 trường hợp từ 1 người và `session_id` trống; không thể khái quát hay kết luận quan hệ nhân quả. |
