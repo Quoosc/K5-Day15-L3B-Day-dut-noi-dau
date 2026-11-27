@@ -1,0 +1,9 @@
+code,title,text
+L01,AI và ứng dụng,"AI là lĩnh vực xây dựng hệ thống có thể thực hiện những nhiệm vụ thường cần năng lực như nhận dạng mẫu, dự đoán hoặc tạo nội dung. Một ứng dụng AI là sản phẩm dùng một hay nhiều mô hình để hỗ trợ một công việc cụ thể."
+L02,Mô hình ngôn ngữ lớn,"Mô hình ngôn ngữ lớn (LLM) học mẫu trong văn bản để dự đoán token tiếp theo. Nó tạo câu trả lời dựa trên ngữ cảnh và mẫu đã học; câu trả lời trôi chảy không tự chứng minh rằng nội dung đúng."
+L03,Token,"Token là đơn vị văn bản mà mô hình xử lý. Token có thể là một từ, một phần của từ, dấu câu hoặc ký tự; token không luôn tương ứng một-một với từ."
+L04,Prompt và ngữ cảnh,"Prompt là chỉ dẫn và nội dung đầu vào gửi cho mô hình. Ngữ cảnh là thông tin mô hình được cung cấp trong một lượt để tạo câu trả lời. Thiếu ngữ cảnh phù hợp có thể làm câu trả lời kém liên quan."
+L05,Temperature,"Temperature điều chỉnh mức độ ngẫu nhiên trong quá trình chọn token. Giá trị thấp thường làm đầu ra ổn định hơn; nó không bảo đảm rằng câu trả lời đúng sự thật."
+L06,RAG,"RAG là cách tìm các đoạn tài liệu liên quan rồi đưa chúng vào ngữ cảnh để mô hình trả lời. Việc tìm được đoạn liên quan không tự bảo đảm đoạn đó chính xác, mới nhất hoặc câu trả lời trích dẫn đúng."
+L07,Hallucination,"Hallucination là đầu ra có vẻ hợp lý nhưng không được căn cứ hỗ trợ hoặc có thông tin sai. Người đọc cần đối chiếu khẳng định với nguồn đáng tin cậy."
+L08,Giới hạn bộ dữ liệu,"Bộ đoạn mẫu này chỉ có tám mục ngắn do nhóm tự viết. Nếu không thấy nội dung được hỏi trong các đoạn, bộ tìm kiếm phải báo không có căn cứ trong bộ mẫu thay vì suy diễn rằng tài liệu khoá cũng không có nội dung đó."
