@@ -6,6 +6,7 @@
 - Người dùng chính dự kiến: học viên L3 đang học bài trên trang pre-class và gửi câu hỏi cho trợ giảng dưới video.
 - **Giả thuyết làm việc:** một số học viên không nhận được câu trả lời gắn rõ với nội dung bài khi hỏi dưới video; họ phải tự tìm lại đoạn liên quan hoặc tiếp tục học mà chưa giải quyết được câu hỏi.
 - **Giải thích khác:** cờ `missing_context` có thể biểu thị trạng thái kỹ thuật/định tuyến chứ không phải trải nghiệm kém; câu trả lời vẫn có thể hữu ích; nhóm người dùng hỏi không đại diện lớp.
-- **Bằng chứng để ủng hộ:** trong phỏng vấn ≥3 học viên, ít nhất 2 người tự kể một tình huống gần đây trong tháng qua mà câu trả lời dưới video không có căn cứ họ kiểm được và phải tự xoay xở tiếp. Đây là ngưỡng nghiên cứu đặt ra sau khi xem data, chưa phải kết quả.
-- **Nguồn sẽ dùng:** ☑ đào data (chỉ báo khám phá; xem `data-mining.md`) · ☐ phỏng vấn ≥3 (chưa làm; nguồn cần để xác minh) · ☐ khảo sát ≥20.
+- **Bằng chứng hiện có:** data có 98/1.091 lượt hỏi gắn cờ `missing_context=true` (chỉ báo vận hành, chưa xác minh pain); ghi chép phỏng vấn 3 người ở `evidence/summary.md`, trong đó P1 kể có lúc phản hồi tổng quát và phải tự tìm ví dụ thêm. Chưa xác nhận vai/lớp, ngoài nhóm, và chưa có tình huống cụ thể sau khi làm sai quiz.
+- **Ngưỡng nghiên cứu:** ít nhất 2/3 học viên L3 ngoài nhóm tự kể một tình huống gần đây trong tháng qua mà phản hồi dưới video chưa giải quyết được câu hỏi và họ phải tự xoay xở tiếp. Ngưỡng đặt sau khi xem data, không phải đăng ký trước.
+- **Nguồn đã dùng / cần kiểm lại:** ☑ đào data (chỉ báo khám phá; xem `data-mining.md`) · ☑ ghi chép phỏng vấn 3 người (chưa xác nhận tiêu chí người dùng; xem `summary.md`) · ☐ khảo sát ≥20.
 - **Nguồn kiểm lại:** phỏng vấn học viên L3 ngoài nhóm; hỏi về lần gần nhất và hành vi thực tế, không hỏi thích ý tưởng hay không.

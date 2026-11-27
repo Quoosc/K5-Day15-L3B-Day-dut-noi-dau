@@ -34,4 +34,4 @@ Các mã dưới đây là ID đã được BTC thay mới; chỉ minh hoạ b�
 
 Đây là cờ vận hành do hệ thống ghi; không có rubric/kiểm định độ chính xác của cờ trong gói này. 98/1.091 chỉ nói rằng phản hồi bị đánh dấu thiếu ngữ cảnh, không chứng minh pain, mức sai hoặc hậu quả. Data chỉ có 1.091/1.260 lượt chat là câu hỏi, và người hỏi có thể khác nhóm người dùng mục tiêu.
 
-→ Cần kiểm lại bằng phỏng vấn ≥3 học viên L3 đã hỏi trợ giảng: hỏi lần gần nhất họ không nhận được câu trả lời có căn cứ, cách họ phát hiện và việc họ làm tiếp. Chưa có phỏng vấn/khảo sát được ghi nhận trong repo.
+→ Đã có ghi chép phỏng vấn 3 người ở `evidence/summary.md`, nhưng chưa xác nhận họ thuộc đúng nhóm học viên L3 ngoài nhóm; ghi chép cũng chưa nối được với các lượt có cờ. Cần hỏi thêm về lần làm sai quiz và việc xem lại video để kiểm tra lát cắt đã chọn; không dùng cờ này như bằng chứng thay thế cho trải nghiệm đó.

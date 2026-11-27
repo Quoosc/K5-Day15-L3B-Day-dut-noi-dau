@@ -34,7 +34,7 @@ Ba người được ghi nhận tự báo cáo gặp khó khăn và phải dùng
 
 ## 5. Kết luận
 
-Ghi chép ban đầu ủng hộ việc một số người học cần xem lại hoặc tìm thêm nguồn sau khi hỏi, nhưng mẫu chỉ có 3 người và thông tin vai/lớp, cách tuyển người, ngày phỏng vấn còn thiếu. Chưa đủ để khái quát mức độ pain hoặc khẳng định nguyên nhân là trợ giảng thiếu ngữ cảnh. Cần bổ sung thông tin người tham gia và ghi chép còn thiếu, rồi mới đánh giá mức độ phù hợp với người dùng mục tiêu.
+Ghi chép ban đầu ủng hộ việc một số người học cần xem lại hoặc tìm thêm nguồn sau khi hỏi, nhưng mẫu chỉ có 3 người và thông tin vai/lớp, cách tuyển người, ngày phỏng vấn còn thiếu. P1 không nói đây là lần làm sai câu quiz hay phải tua qua nhiều đoạn; vì vậy chưa xác nhận lát cắt CP1 “sau câu sai → tìm đoạn để xem lại”. Chưa đủ để khái quát mức độ pain hoặc khẳng định nguyên nhân là trợ giảng thiếu ngữ cảnh. Cần bổ sung thông tin người tham gia và hỏi/đếm đúng tình huống sau khi làm sai quiz.
 
 ## Thông tin cần hoàn thiện
 

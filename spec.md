@@ -4,7 +4,7 @@
 > Đầu mỗi mục ghi bước guide (`02-guide.md` trong repo đề) chỉ cách điền. Mỗi mục ngắn, có số và nguồn; chi tiết để ở file được trỏ tới. Xoá dòng hướng dẫn trong ngoặc vuông khi điền xong.
 
 Track: [x] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: A1 · EdTech · Tìm lại đoạn bài giảng cần xem sau khi học viên làm sai câu hỏi trắc nghiệm / pre-class
-Data BTC cấp đã dùng (nếu có — không commit nguyên file): chưa dùng data BTC cấp (đang dùng `data/lecture_transcripts.json` trích từ 3 video bài giảng thật trong `my-doc/`)
+Data BTC cấp đã dùng (nếu có — không commit nguyên file): chưa dùng data BTC cấp (đang dùng `data/lecture_transcripts.json` trích từ 3 video bài giảng thật được lưu trong `data/video/`)
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
 - Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
@@ -96,7 +96,7 @@ flowchart LR
   | Pedagogical Guardrail — định hướng, không mớm bài | Nhánh chặn Lớp 3 trong `codebase/agent.py` + quy tắc cứng trong `SYSTEM` từ chối mọi yêu cầu xin đáp án A/B/C/D hoặc tấn công ép bịa mốc. |
   | Domain UX — tối đa 2 lần nhấn đến đúng giây video | Mỗi đoạn trả về từ `search_transcript` đính kèm sẵn URL `?t=<seconds>` để hiển thị link nhảy trực tiếp trong câu trả lời. |
 
-- Phần nào còn giả (công cụ trả dữ liệu giả, model chế độ giả…) — ghi rõ, không giả làm thật: Dữ liệu transcript ở `data/lecture_transcripts.json` là **dữ liệu thật** trích từ 3 video `.mp4` trong `my-doc/` (35 phân đoạn). Ở mốc CP2, lời gọi model AI vẫn chạy ở chế độ giả (`MODEL_PROVIDER=fake` trong `codebase/ai.py`, token = 0) để chốt kiến trúc và thử luồng; sẽ bật model thật ở CP3.
+- Phần nào còn giả (công cụ trả dữ liệu giả, model chế độ giả…) — ghi rõ, không giả làm thật: Dữ liệu transcript ở `data/lecture_transcripts.json` là **dữ liệu thật** trích từ 3 video `.mp4` trong `data/video/` (35 phân đoạn). Ở mốc CP2, lời gọi model AI vẫn chạy ở chế độ giả (`MODEL_PROVIDER=fake` trong `codebase/ai.py`, token = 0) để chốt kiến trúc và thử luồng; sẽ bật model thật ở CP3.
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
