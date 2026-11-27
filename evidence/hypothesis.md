@@ -1,11 +1,11 @@
-# Giả thuyết — viết TRƯỚC khi tìm bằng chứng (5 phút, commit ngay)
+# Giả thuyết pain — ghi nhận minh bạch tại CP2
 
-> Điền ở guide bước 1.1. Ôn lại: ngày 2 · lab ngày 2.
-> Viết **trước** khi đọc dòng data đầu tiên hay hỏi người đầu tiên, để không sửa cho khớp kết quả. Kết quả ngược giả thuyết vẫn đủ điểm nếu số là thật.
+> Repo ban đầu chỉ có mẫu trống. Không có bản giả thuyết có dấu thời gian trước khi xem data; nội dung dưới đây là giả thuyết làm việc lập sau khi xem mô tả và số liệu, **không được tính là đăng ký trước**.
 
-- Ngày giờ viết: __
-- Người dùng chính (một vai cụ thể): __
-- **Mình nghĩ:** [ai] gặp khó khi [việc] vì [lý do], hậu quả là [mất gì].
-- **Có thể còn cách giải thích khác:** __
-- **Mình đúng nếu thấy:** [một con số nhóm tự chọn] — vd "≥2/3 người kể được một lần như thế trong 1 tháng qua" hoặc "≥x/N học viên bỏ ở bước này" *(ví dụ)*
-- **Nguồn sẽ dùng** (≥1 nguồn đạt ngưỡng, guide 1.2): [ ] đào data · [ ] phỏng vấn ≥3 · [ ] khảo sát ≥20 — nguồn chính: __ · nguồn để kiểm lại: __
+- Ngày ghi nhận: 27/11/2026 (CP2; sau khi đã xem data pack và kiểm đếm).
+- Người dùng chính dự kiến: học viên L3 đang học bài trên trang pre-class và gửi câu hỏi cho trợ giảng dưới video.
+- **Giả thuyết làm việc:** một số học viên không nhận được câu trả lời gắn rõ với nội dung bài khi hỏi dưới video; họ phải tự tìm lại đoạn liên quan hoặc tiếp tục học mà chưa giải quyết được câu hỏi.
+- **Giải thích khác:** cờ `missing_context` có thể biểu thị trạng thái kỹ thuật/định tuyến chứ không phải trải nghiệm kém; câu trả lời vẫn có thể hữu ích; nhóm người dùng hỏi không đại diện lớp.
+- **Bằng chứng để ủng hộ:** trong phỏng vấn ≥3 học viên, ít nhất 2 người tự kể một tình huống gần đây trong tháng qua mà câu trả lời dưới video không có căn cứ họ kiểm được và phải tự xoay xở tiếp. Đây là ngưỡng nghiên cứu đặt ra sau khi xem data, chưa phải kết quả.
+- **Nguồn sẽ dùng:** ☑ đào data (chỉ báo khám phá; xem `data-mining.md`) · ☐ phỏng vấn ≥3 (chưa làm; nguồn cần để xác minh) · ☐ khảo sát ≥20.
+- **Nguồn kiểm lại:** phỏng vấn học viên L3 ngoài nhóm; hỏi về lần gần nhất và hành vi thực tế, không hỏi thích ý tưởng hay không.
