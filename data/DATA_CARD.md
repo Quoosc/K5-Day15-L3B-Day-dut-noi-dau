@@ -19,3 +19,25 @@
 - **Nguồn ở mốc CP2:** `30/30` câu gắn nhãn trung thực là `tu_viet:...` (tự soạn dựa sát 100% nội dung 3 video thật trong `my-doc/` và bảng 4 lớp chỗ khó trong `spec.md §5`).
 - **Kế hoạch bổ sung nguồn thật trước CP3:** Nhóm sẽ phỏng vấn và thu thập ít nhất 10 câu hỏi trắc nghiệm / câu hỏi vấp thật từ học viên hoặc data thật để đạt tỉ lệ `nguoi_dung` / `data_that` ≥ 1/3 bộ câu thử (`≥ 10/30` câu).
 - **Quy định ẩn danh:** Không lưu họ tên thật, email hay mã sinh viên vào `eval/benchmark.csv`; dùng ký hiệu ẩn danh nếu trích từ người học (`P1`, `P2`...).
+
+## Dữ liệu bổ sung cho bằng chứng pain (CP2)
+
+### Đoạn bài mẫu cho trợ giảng có căn cứ
+
+| | |
+|---|---|
+| Dùng để làm gì | Dữ liệu đọc thử cho `search_lesson` và bản demo trợ giảng; hỗ trợ thử câu hỏi thường, câu mơ hồ và câu ngoài bài. |
+| Nguồn và nhãn | Nhóm tự biên soạn các khái niệm AI/LLM; `synthetic`, không phải tài liệu chính thức của khoá. |
+| Xử lý và quy mô | Soạn thủ công thành 8 đoạn độc lập mã `L01`–`L08`, lưu tại `data/lesson_passages.csv`; không có dữ liệu người học. |
+| Phiên bản | v1 · 27/11/2026. |
+| Giới hạn | Phạm vi hẹp, chưa có kiểm tra viên chuyên môn độc lập; chỉ dùng thử tra cứu và từ chối khi không có căn cứ, không dùng làm bằng chứng pain. |
+
+### Nhật ký hành vi pre-class đã ẩn danh
+
+| | |
+|---|---|
+| Dùng để làm gì | Đếm lượt hỏi trợ giảng và cờ `missing_context` do hệ thống ghi; chi tiết ở `evidence/data-mining.md`. |
+| Nguồn | Data BTC cấp: `K5-L3-Day15-AI-Product-Hackathon/data/preclass/chat.csv` và `events.csv`; dữ liệu 05–25/11/2026. |
+| Xử lý | Đếm `chat.kind=question`, nối `chat.id` với `events.ref_id` của `agent_replied`, đọc `data.missing_context`; script chạy lại: `evidence/count_preclass.py`. Không lưu CSV gốc trong repo. |
+| Kết quả | 1.091 câu hỏi; 98 có cờ `missing_context=true`. |
+| Giới hạn | Cờ hệ thống chưa được kiểm chứng là lỗi hay trải nghiệm đau; không có nội dung hỏi/đáp. Chỉ phản ánh 143 người có ít nhất một câu hỏi, không đại diện toàn bộ lớp. |
