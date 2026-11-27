@@ -24,7 +24,7 @@ SYSTEM = (
 _CHEATING_PATTERNS = [
     r"đáp\s*án(\s*đúng)?",
     r"chốt\s*(nhanh|giúp|lẹ).*([ABCD]|đáp\s*án)",
-    r"chọn\s*([ABCD]|phương\s*án)",
+    r"chọn\s*([ABCD]\b|phương\s*án)",
     r"phương\s*án\s*[ABCD]",
     r"bài\s*tập.*làm\s*hộ",
     r"giải\s*hộ",
@@ -53,13 +53,13 @@ _AMBIGUOUS_PATTERNS = [
 def _is_cheating_or_attack(text: str) -> bool:
     """Phát hiện yêu cầu xin đáp án hoặc tấn công ép đổi vai / bịa nguồn."""
     lower = text.lower()
-    return any(re.search(pat, lower) for pat in _CHEATING_PATTERNS)
+    return any(re.search(pat, lower, re.IGNORECASE) for pat in _CHEATING_PATTERNS)
 
 
-def _is_ambiguous(text: str) -> bool:
+def _is_ambiguous(text: str, hits: list) -> bool:
     """Phát hiện câu hỏi cụt lủn, thiếu dữ kiện hoặc chưa rõ video (G10)."""
     stripped = text.strip()
-    if len(stripped.split()) < 4:
+    if len(stripped.split()) < 4 and (not hits or (len(hits) > 1 and hits[0]['score'] == hits[1]['score'])):
         return True
     lower = stripped.lower()
     return any(re.search(pat, lower) for pat in _AMBIGUOUS_PATTERNS)
@@ -83,14 +83,15 @@ def _format_video_menu(topics: list) -> str:
 
 def _format_grounded_hint(hit: dict, prefix: str = "") -> str:
     """Định dạng gợi ý gắn mã đoạn [Vx-Syy], mốc thời gian và link ?t=seconds."""
-    header = f"{prefix}\n" if prefix else ""
-    return (
-        f"{header}"
+    lines = [prefix] if prefix else []
+    lines.append(
         f"Bạn hãy xem lại đoạn [{hit['code']}] ({hit['start']} - {hit['end']}) "
-        f"thuộc bài \"{hit['video_title']}\": {hit['topic']}.\n"
-        f"Tóm tắt trong bài giảng: {hit['text']}\n"
-        f"Link mở thẳng tới đúng giây: {hit['link']}"
+        f"thuộc bài {hit['video_title']}."
     )
+    if not prefix:
+        lines.append(f"Tóm tắt trong bài giảng: {hit['text']}")
+    lines.append(f"Mở đoạn để ôn lại: {hit['link']}")
+    return "\n".join(lines)
 
 
 def _build_grounded_context(hits: list) -> str:
@@ -168,7 +169,8 @@ def answer(text: str) -> dict:
             }
         return {"output": _verify_segment_codes(res["text"], hits)}
 
-    if _is_ambiguous(cleaned):
+    hits = search_transcript(cleaned, top_k=3)
+    if _is_ambiguous(cleaned, hits):
         note("lop_2_g10_mo_ho")
         topics = list_video_topics()
         menu = _format_video_menu(topics)
@@ -189,11 +191,8 @@ def answer(text: str) -> dict:
             }
         return {"output": res["text"]}
 
-    hits = search_transcript(cleaned, top_k=3)
     if not hits:
         note("lop_1_khong_co_can_cu")
-        topics = list_video_topics()
-        menu = _format_video_menu(topics)
         prompt = (
             f"Câu hỏi học viên: {cleaned}\n"
             "Kết quả tra cứu trong 3 video bài giảng hiện tại: RỖNG.\n"
@@ -204,9 +203,7 @@ def answer(text: str) -> dict:
             return {
                 "output": (
                     "Chủ đề bạn hỏi không có trong nội dung 3 video bài giảng hiện tại nên mình không trích dẫn "
-                    "mã đoạn [Vx-Syy] hay mốc thời gian nào (tránh bịa thông tin). "
-                    "Bạn có thể hỏi trợ giảng hoặc chọn một trong các bài giảng hiện có:\n"
-                    f"{menu}"
+                    "được mốc thời gian. Bạn có thể gửi thêm tên bài hoặc hỏi trợ giảng."
                 )
             }
         return {"output": _verify_segment_codes(res["text"], hits)}

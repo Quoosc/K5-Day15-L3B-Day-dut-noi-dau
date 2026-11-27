@@ -28,8 +28,15 @@ def _where(e):
 
 def main() -> int:
     try:
+        import atexit
+        import tools
+        from passage_view import serve_passages
         import tracing
         from agent import answer
+        server = serve_passages(tools.load_videos())
+        tools.demo_origin = f"http://127.0.0.1:{server.server_port}"
+        atexit.register(server.server_close)
+        atexit.register(server.shutdown)
     except Exception as e:  # lỗi cú pháp, thiếu thư viện… trong codebase/
         print("Không nạp được codebase/ — lỗi ở %s: %s: %s" % (_where(e), type(e).__name__, e))
         print("Sửa lỗi rồi chạy lại. Cách nối model: docs/connect-model.md")
