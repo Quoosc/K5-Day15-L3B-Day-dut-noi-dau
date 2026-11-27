@@ -31,8 +31,7 @@ def main() -> int:
         import atexit
         import tools
         from passage_view import serve_passages
-        import tracing
-        from agent import answer
+        from demo import ask
         server = serve_passages(tools.load_videos())
         tools.demo_origin = f"http://127.0.0.1:{server.server_port}"
         atexit.register(server.server_close)
@@ -42,6 +41,7 @@ def main() -> int:
         print("Sửa lỗi rồi chạy lại. Cách nối model: docs/connect-model.md")
         return 1
     print("Bản chạy thử — gõ đầu vào rồi Enter. Thoát: Ctrl+C (hoặc Enter 2 lần với dòng trống).")
+    print(f"Giao diện demo: {tools.demo_origin}/", flush=True)
     blank = 0
     while True:
         try:
@@ -55,18 +55,14 @@ def main() -> int:
                 return 0
             continue
         blank = 0
-        tracing.begin("app")
         try:
-            result = answer(text)
+            result, s = ask(text)
         except NotImplementedError as e:
-            tracing.end()
             print("Chưa nối model: %s" % e)
             return 1
         except Exception as e:  # lỗi gọi model: báo rồi cho hỏi tiếp
-            tracing.end()
             print("[lỗi] %s: %s" % (type(e).__name__, e))
             continue
-        s, _ = tracing.end()
         print(result.get("output", "") if isinstance(result, dict) else result)
         print("   (model: %s · gọi model %d lần · công cụ %d lần · token vào %d / ra %d)"
               % (", ".join(s["models"]) or "—", s["model_calls"], s["tool_calls"], s["tokens_in"], s["tokens_out"]))

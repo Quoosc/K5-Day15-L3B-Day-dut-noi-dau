@@ -1,5 +1,6 @@
 """Trang đọc transcript phục vụ trên loopback trong lúc chạy demo CLI."""
 
+import json
 import re
 from pathlib import Path
 from html import escape
@@ -17,8 +18,45 @@ def serve_passages(videos):
     }
 
     class Handler(BaseHTTPRequestHandler):
+        def do_POST(self):
+            from demo import ask
+            origin = f"http://127.0.0.1:{self.server.server_port}"
+            if self.path != "/ask" or self.headers.get("Origin") != origin:
+                self.send_error(403)
+                return
+            try:
+                size = int(self.headers.get("Content-Length", "0"))
+                if not 0 < size <= 20000:
+                    raise ValueError
+                question = json.loads(self.rfile.read(size))["question"]
+                if not isinstance(question, str) or not 0 < len(question.strip()) <= 2500:
+                    raise ValueError
+            except (ValueError, KeyError, TypeError):
+                self.send_error(400)
+                return
+            try:
+                result, stats = ask(question)
+                payload = json.dumps(dict(result, stats=stats), ensure_ascii=False).encode()
+            except Exception:
+                self.send_error(502)
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+
+
         def do_GET(self):
             url = urlsplit(self.path)
+            if url.path == "/":
+                body = (root / "codebase" / "demo.html").read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+                return
             if url.path in media:
                 self.send_video(media[url.path])
                 return

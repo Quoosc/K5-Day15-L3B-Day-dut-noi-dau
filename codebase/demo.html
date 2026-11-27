@@ -1,0 +1,20 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Xem lại · Trợ giảng L3B</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#192745;font:17px/1.55 "Segoe UI",sans-serif}main,header{max-width:1020px;margin:auto;padding:24px clamp(18px,5vw,60px)}header{display:flex;justify-content:space-between;border-bottom:1px solid #c6cddd;color:#354765}header strong{color:#203fa0}h1{font-size:clamp(36px,6vw,68px);line-height:1.08;letter-spacing:-.045em;margin:38px 0 22px}label{font-weight:650;display:block;margin-bottom:8px}textarea{width:100%;font:inherit;padding:15px;border:1px solid #8190aa;border-radius:8px;resize:vertical;min-height:100px}button{background:#2049ad;color:white;border:0;border-radius:7px;font:inherit;font-weight:650;min-height:46px;padding:8px 20px;cursor:pointer}button:disabled{opacity:.65}button:focus-visible,textarea:focus-visible{outline:3px solid #208078;outline-offset:3px}section{border-left:4px solid #327d79;padding:2px 20px;margin:22px 0;background:white}video{background:#111;width:100%;max-height:52vh}p{white-space:pre-line}small{color:#465770}h2{font-size:23px}#status{min-height:26px;margin:12px 0}
+</style><header><strong>◀◀ &nbsp; Xem lại</strong><span>Trợ giảng · L3B</span></header><main><h1>Tìm đoạn cần ôn</h1><form><label for="question">Bạn vừa vướng câu hỏi hay khái niệm nào?</label><textarea id="question" required maxlength="2500" placeholder="Ví dụ: Positional Embedding trong Transformer"></textarea><button>Tìm đoạn bài giảng</button></form><p role="status" id="status"></p><section hidden><h2 id="heading"></h2><video hidden controls preload="metadata"></video><p id="reply"></p><small id="usage"></small></section></main>
+<script>
+const el=s=>document.querySelector(s),form=el("form"),video=el("video"),question=el("#question"),statusLine=el("#status");
+form.onsubmit=async e=>{
+ e.preventDefault();const q=question.value.trim();if(!q){question.focus();return}
+ const button=el("button");button.disabled=true;video.pause();video.removeAttribute("src");video.load();video.hidden=true;el("section").hidden=true;statusLine.textContent="Đang đối chiếu với transcript…";
+ try{
+ const res=await fetch("/ask",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});if(!res.ok)throw Error();
+ const r=await res.json(),p=r.passage;
+ el("#heading").textContent=p?p.code+" · "+p.start+" – "+p.end:"Hướng dẫn ôn tập";
+ el("#reply").textContent=r.output.split("\nMở đoạn để ôn lại:")[0];
+ if(p){video.hidden=false;video.src="/media/"+encodeURIComponent(p.video_id)+"#t="+p.seconds;}
+ const s=r.stats;el("#usage").textContent=s.model_calls?s.models.join(", ")+" · Token vào "+s.tokens_in+" / ra "+s.tokens_out:"";
+ el("section").hidden=false;statusLine.textContent=p?"Đã tìm thấy đoạn. Nhấn phát để xem.":"Đã kiểm tra câu hỏi.";
+ }catch{statusLine.textContent="Chưa lấy được gợi ý. Hãy kiểm tra kết nối hoặc cấu hình model rồi thử lại."}finally{button.disabled=false}
+};
+</script></html>

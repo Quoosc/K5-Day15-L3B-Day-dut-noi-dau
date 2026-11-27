@@ -65,12 +65,14 @@ def call_groq(system: str, user: str) -> dict:
     """Gọi Groq API (tương thích OpenAI Chat Completions) và trả về text + token usage."""
     if not API_KEY:
         raise RuntimeError("Thiếu API_KEY trong file .env")
-    model = MODEL_NAME or "llama-3.3-70b-versatile"
+    model = MODEL_NAME or "openai/gpt-oss-20b"
     data = post_json(
         "https://api.groq.com/openai/v1/chat/completions",
         {"Authorization": "Bearer " + API_KEY},
         {
             "model": model,
+            "temperature": 0,
+            "response_format": {"type": "json_object"},
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},
