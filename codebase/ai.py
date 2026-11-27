@@ -44,6 +44,7 @@ load_env()
 MODEL_PROVIDER = (os.environ.get("MODEL_PROVIDER") or "fake").strip().lower()
 MODEL_NAME = (os.environ.get("MODEL_NAME") or "").strip()
 API_KEY = (os.environ.get("GROQ_API_KEY") or os.environ.get("API_KEY") or "").strip()
+OLLAMA_URL = (os.environ.get("OLLAMA_URL") or "http://127.0.0.1:11434/api/chat").strip()
 
 
 def post_json(url: str, headers: dict, body: dict, timeout: int = 60) -> dict:
@@ -64,7 +65,8 @@ def post_json(url: str, headers: dict, body: dict, timeout: int = 60) -> dict:
             if e.code == 429 and attempt < 2 and delay.replace(".", "", 1).isdigit() and float(delay) <= 25:
                 time.sleep(max(1, float(delay)) + 0.5)
                 continue
-            raise RuntimeError("Groq HTTP %d" % e.code) from None
+            body_err = e.read().decode("utf-8", "replace")[:300]
+            raise RuntimeError("HTTP %d: %s" % (e.code, body_err) if body_err else "HTTP %d" % e.code) from None
 
 
 def call_groq(system: str, user: str) -> dict:
@@ -94,6 +96,32 @@ def call_groq(system: str, user: str) -> dict:
     }
 
 
+def call_ollama(system: str, user: str) -> dict:
+    """Gọi Ollama cục bộ (/api/chat) và trả về text + token usage từ phản hồi."""
+    model = MODEL_NAME or "qwen2.5:3b"
+    messages = ([{"role": "system", "content": system}] if system else []) + [
+        {"role": "user", "content": user}
+    ]
+    data = post_json(
+        OLLAMA_URL,
+        {},
+        {
+            "model": model,
+            "messages": messages,
+            "stream": False,
+            "format": "json",
+            "options": {"temperature": 0},
+        },
+        timeout=300,
+    )
+    return {
+        "text": (data.get("message") or {}).get("content", ""),
+        "model": data.get("model") or model,
+        "tokens_in": int(data.get("prompt_eval_count") or 0),
+        "tokens_out": int(data.get("eval_count") or 0),
+    }
+
+
 @model_call
 def call_model(system: str, user: str) -> dict:
     if MODEL_PROVIDER == "fake":
@@ -101,6 +129,8 @@ def call_model(system: str, user: str) -> dict:
         return {"text": "[câu trả lời giả — chưa nối model] " + last[:60], "model": "fake", "tokens_in": 0, "tokens_out": 0}
     if MODEL_PROVIDER == "groq":
         return call_groq(system, user)
+    if MODEL_PROVIDER == "ollama":
+        return call_ollama(system, user)
 
     raise NotImplementedError(
         "chưa viết phần gọi model thật cho MODEL_PROVIDER=%s trong codebase/ai.py — xem docs/connect-model.md"
