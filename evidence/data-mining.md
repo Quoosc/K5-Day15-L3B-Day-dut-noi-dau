@@ -28,6 +28,7 @@
 | Câu hỏi có `missing_context=true` | 98 / 1.091 | 9,0% | N là lượt `kind=question`; cờ được nối với phản hồi trợ giảng theo ID. |
 | Người có ≥1 câu hỏi bị gắn cờ | 49 / 143 | 34,3% | N là người có câu hỏi trong data, không phải 436 người hoạt động. |
 | Trả lời sai lần đầu trong video quiz | 2 / 7 | 28,6% | 7 lượt trả lời lần đầu từ 2 học viên; cả 2 lần sai của cùng 1 học viên. Mẫu rất nhỏ. |
+| Lượt trả lời lần đầu có ít nhất một seek cùng video sau câu trả lời (đúng hoặc sai) | 1 / 7 | 14,3% | Lượt `A01767` là trả lời đúng; 16 event seek trong 15 phút, gồm 9 lần tua lùi. Không tính đây là hành vi sau câu sai. |
 
 ### Hành vi sau lần đầu trả lời sai quiz trong video
 
@@ -38,9 +39,21 @@
 | Học viên duy nhất có ít nhất một lần tua lùi sau câu sai | 0 / 1 | 0,0% | N chỉ là một người có lần trả lời sai; không khái quát được. |
 | Lần sai nối được `answer_submitted` và câu quiz để xác định video | 2 / 2 | 100% | Không có trường hợp bị loại khỏi mẫu phân tích. |
 
-## 4. Ví dụ cụ thể
+## 4. Ví dụ cụ thể và bàn giao
 
-Các mã dưới đây là ID đã được BTC thay mới; chỉ minh hoạ bản ghi có cờ, không có nội dung hỏi/đáp để đánh giá chất lượng:
+Năm ví dụ hành vi dưới đây dùng mã dòng đã ẩn danh trong `answers.csv`. Hai dòng đầu là toàn bộ mẫu câu trả lời sai; ba dòng sau minh hoạ event tua trong một lượt trả lời đúng để cho thấy log ghi nhận hành vi, nhưng không được gộp vào mẫu số sau câu sai. `events.csv` không có ID riêng cho event; các dòng seek được nhận diện bằng mã câu trả lời liên quan, video và `occurred_at`.
+
+| # | Nguồn / mã dòng | Hành vi ghi nhận | Cách diễn giải |
+|---|---|---|---|
+| 1 | `answers.csv` `A01200`; `answer_submitted` lúc `2026-11-25T00:16:28.826933Z`; video `d13-r1-v01` | Trả lời sai lần đầu; không có `video_seeked` cùng video trong 15 phút sau đó. | Một trong hai lượt sai trong mẫu; không biết người học đã làm gì ngoài event được ghi. |
+| 2 | `answers.csv` `A01809`; `answer_submitted` lúc `2026-11-25T01:08:32.894732Z`; video `d13-r1-v03` | Trả lời sai lần đầu; không có `video_seeked` cùng video trong 15 phút sau đó. | Lượt sai thứ hai, cùng một mã học viên ẩn danh với dòng 1. |
+| 3 | `answers.csv` `A01767` (đúng); `video_seeked` `2026-11-25T06:02:22.607000+00:00`; `d13-r1-v01` | Tua từ 283,7 giây về 189,4 giây, khoảng 94,3 giây lùi. | Ví dụ đối chiếu ngoài mẫu sai; event không cho biết lý do tua. |
+| 4 | `answers.csv` `A01767` (đúng); `video_seeked` `2026-11-25T06:02:25.153000+00:00`; `d13-r1-v01` | Tua tiếp từ 189,4 giây về 114,8 giây, khoảng 74,6 giây lùi. | Cùng lượt trả lời và video ở dòng 3; không phải một người/lần độc lập. |
+| 5 | `answers.csv` `A01767` (đúng); `video_seeked` `2026-11-25T06:02:35.801000+00:00`; `d13-r1-v01` | Tua tiếp từ 114,8 giây về 84,2 giây, khoảng 30,6 giây lùi. | Cùng chuỗi seek trong khoảng 13 giây; không suy ra mục đích hay nội dung đã xem. |
+
+Nguồn: `answers.csv` và `events.csv` trong data pack BTC; tái tạo mẫu số bằng `python evidence/count_preclass.py --data-dir data/preclass`. Năm mã chat dưới đây là ví dụ riêng cho phép đếm cờ, không phải bằng chứng hành vi tua:
+
+Các mã chat đã được BTC thay mới; chỉ minh hoạ bản ghi có cờ, không có nội dung hỏi/đáp để đánh giá chất lượng:
 
 1. `C00983` — transcript `Day01/d01-r1-v05.txt` — `missing_context=true`.
 2. `C00676` — transcript `Day01/d01-r1-v01.txt` — `missing_context=true`.
@@ -48,13 +61,10 @@ Các mã dưới đây là ID đã được BTC thay mới; chỉ minh hoạ b�
 4. `C00837` — transcript `Day02/d02-r2-v01.txt` — `missing_context=true`.
 5. `C00523` — transcript `Day02/d02-r2-v03.txt` — `missing_context=true`.
 
-6. `A01200` — câu video quiz đầu tiên trả lời sai ngày 25/11; không có `video_seeked` cùng video trong 15 phút kế tiếp.
-7. `A01809` — một câu video quiz đầu tiên khác trả lời sai ngày 25/11 của cùng học viên đã mã hoá; không có `video_seeked` cùng video trong 15 phút kế tiếp.
-
-Hai ví dụ câu sai đều từ một người; không có nội dung câu hỏi/đáp để trích. Các mã và thời gian được in lại bằng script; không ghi tên hay nội dung chat.
+Hai mã answer sai đều từ một người; `A01767` là câu trả lời đúng và chỉ làm ví dụ cho chuỗi tua. Không có nội dung câu hỏi/đáp để trích. Mã và thời gian không nhận diện trực tiếp người thật.
 
 ## 5. Giới hạn của data
 
-Đây là cờ vận hành do hệ thống ghi; không có rubric/kiểm định độ chính xác của cờ trong gói này. 98/1.091 chỉ nói rằng phản hồi bị đánh dấu thiếu ngữ cảnh, không chứng minh pain, mức sai hoặc hậu quả. Data chỉ có 1.091/1.260 lượt chat là câu hỏi, và người hỏi có thể khác nhóm người dùng mục tiêu. Chỉ có 7 lần trả lời quiz trong video lần đầu từ 2 người trong toàn bộ khoảng dữ liệu; hai lần sai thuộc cùng một người. Không thấy seek cùng video trong 15 phút sau hai lần đó, nhưng N quá nhỏ để kết luận học viên thường không tua lại. `session_id` trống ở event quiz nên cách ghép theo người/bài/video và thời gian có thể còn nhầm phiên. Event tua lùi, nếu có, cũng không chứng minh người học đã xem đúng đoạn cần thiết hay việc trả lời sai gây ra hành vi đó.
+Đây là cờ vận hành do hệ thống ghi; không có rubric/kiểm định độ chính xác của cờ trong gói này. 98/1.091 chỉ nói rằng phản hồi bị đánh dấu thiếu ngữ cảnh, không chứng minh pain, mức sai hoặc hậu quả. Data chỉ có 1.091/1.260 lượt chat là câu hỏi, và người hỏi có thể khác nhóm người dùng mục tiêu. Chỉ có 7 lần trả lời quiz trong video lần đầu từ 2 người trong toàn bộ khoảng dữ liệu; hai lần sai thuộc cùng một người. Không thấy seek cùng video trong 15 phút sau hai lần đó, nhưng N quá nhỏ để kết luận học viên thường không tua lại. Một câu trả lời đúng khác có 16 seek trong cửa sổ (9 lần tua lùi); điều này cho thấy seek cũng xảy ra ngoài tình huống sai, nhưng không cho biết vì sao học viên tua. `session_id` trống ở event quiz nên cách ghép theo người/bài/video và thời gian có thể còn nhầm phiên. Event tua lùi, nếu có, cũng không chứng minh người học đã xem đúng đoạn cần thiết hay việc trả lời sai gây ra hành vi đó.
 
 → Đã có ghi chép phỏng vấn 3 người ở `evidence/summary.md`, nhưng chưa xác nhận họ thuộc đúng nhóm học viên L3 ngoài nhóm; ghi chép cũng chưa nối được với các lượt có cờ. Cần hỏi thêm về lần làm sai quiz và việc xem lại video để kiểm tra lát cắt đã chọn; không dùng cờ này như bằng chứng thay thế cho trải nghiệm đó.

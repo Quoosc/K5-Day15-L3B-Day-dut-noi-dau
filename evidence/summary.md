@@ -14,11 +14,16 @@
 
 ## 2. Số chính
 
-- Đào data: 98/1.091 (9,0%) câu hỏi gắn cờ `missing_context=true`; 49/143 (34,3%) người có câu hỏi có ít nhất một lượt gắn cờ. Trong data có 7 lượt trả lời video quiz lần đầu từ 2 người; 2 lần sai của cùng một người và 0/2 có seek cùng video trong 15 phút. Chi tiết và giới hạn: `evidence/data-mining.md`.
+- Đào data: 98/1.091 (9,0%) câu hỏi gắn cờ `missing_context=true`; 49/143 (34,3%) người có câu hỏi có ít nhất một lượt gắn cờ. Trong data có 7 lượt trả lời video quiz lần đầu từ 2 người; 2 lần sai của cùng một người và 0/2 có seek cùng video trong 15 phút. Trong toàn bộ 7 lượt, 1 lượt trả lời đúng có 16 seek trong cửa sổ (9 lần tua lùi); vì seek cũng xuất hiện ngoài mẫu sai nên không thể quy hành vi này cho việc trả lời sai. Chi tiết, năm ví dụ hành vi và nguồn: `evidence/data-mining.md`.
 - Phỏng vấn: 3 người được ghi nhận là có gặp khó khăn (3/3 trong mẫu nhỏ); P1 báo 3–4 lần/tháng, P2 2–3 lần/tháng, P3 1–2 lần/tháng. Thời gian xử lý lần gần nhất lần lượt khoảng 10–15 phút, 20 phút và 5–10 phút. Đây là tự thuật, không đại diện toàn bộ học viên.
 - Khảo sát: n=9 dòng phản hồi ngày 27/11. Q1 ghi nhận 8/9 có một dạng khó khăn gần đây và 1/9 chọn không gặp khó; kết quả 6/9 hoàn toàn, 3/9 một phần. Tần suất: 1/tháng 2/9, 2–5/tháng 3/9, >5/tháng 4/9. Thời gian: 10–20 phút 6/9, 1 giờ 1/9, >1 giờ 1/9, 20–40 phút 1/9. Mẫu nhỏ hơn 10 nên chỉ ghi x/n. Tư cách L3B ngoài nhóm chưa xác nhận; đây không phải tỷ lệ của lớp.
 
-Ghi chép phỏng vấn hiện có không xác định ngày, vai/lớp hoặc việc người tham gia có ngoài nhóm hay không. Chín phản hồi khảo sát cũng thiếu form gốc, kênh và điều kiện mẫu; xem `evidence/survey/questions.md`. Chưa có trích dẫn phỏng vấn được xác nhận là nguyên văn. Năm mã sự kiện ở `data-mining.md` là ví dụ bản ghi đã ẩn danh, không phải lời chứng minh pain.
+Ghi chép phỏng vấn hiện có không xác định ngày, vai/lớp hoặc việc người tham gia có ngoài nhóm hay không. Chín phản hồi khảo sát cũng thiếu form gốc, kênh và điều kiện mẫu; xem `evidence/survey/questions.md`. Chưa có trích dẫn phỏng vấn được xác nhận là nguyên văn. Các mã dòng chat và câu trả lời trong `data-mining.md` đã được ẩn danh; ví dụ hành vi không tự chứng minh pain.
+
+### Bàn giao số liệu ban đầu (27/11/2026)
+
+- **Minh — số liệu:** 2/7 (28,6%) câu trả lời video quiz lần đầu bị sai; hai lượt thuộc cùng một người. Sau câu sai, 0/2 có seek cùng video trong 15 phút. Có 1/7 lượt trả lời đúng có seek trong cửa sổ (16 event, 9 lần tua lùi). Đây là mẫu rất nhỏ; `session_id` trống, và log không ghi lý do tua. Nguồn/cách nối: `evidence/data-mining.md`; có thể tái chạy `python evidence/count_preclass.py --data-dir data/preclass`.
+- **Phong — tình huống có nguồn:** 5 ví dụ đã ẩn danh, gồm hai lượt sai `A01200`, `A01809` không có seek sau đó và ba event tua lùi thuộc lượt đúng `A01767`. Ba event sau chỉ minh họa log ghi nhận tua, không thuộc mẫu câu sai và không phải ba quan sát độc lập. Bảng kèm timestamp, video, mốc giây và diễn giải ở `evidence/data-mining.md`.
 
 | Mã | Vai (cần bổ sung) | Gặp pain? | Số lần / 1 tháng qua | Thời gian lần gần nhất | Đang xoay xở bằng |
 |---|---|---|---|---|---|
