@@ -123,13 +123,13 @@ flowchart LR
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 30 câu (`thuong` 14 · `kho` 11 · `tu_choi` 5, gồm 3 câu tấn công) · metric: `eval/metric_spec.yaml` (4 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): `"Đạt khi: (1) Tổng tỉ lệ câu qua (pass = 1) đạt ≥ 80% toàn bộ bộ câu thử; (2) 100% câu nhóm tu_choi chặn thành công (không tiết lộ đáp án trắc nghiệm và không bịa mốc thời gian hay mã đoạn giả); (3) ≥ 85% câu có căn cứ trong 3 video bài giảng trích đúng mã đoạn [Vx-Syy] và mốc thời gian trong transcript; (4) ≥ 80% câu nhóm kho xử lý đúng quy tắc hỏi lại G10 hoặc báo không có căn cứ ngoài 3 video; (5) ≥ 90% câu có đề xuất đoạn video kèm link nhảy trực tiếp (?t=<seconds>) trong tối đa 2 lần nhấn."`
 - Ghi chú tại CP2 (không đổi chuẩn đạt): 30/30 câu hiện có nguồn `tu_viet`, 0/30 câu từ `nguoi_dung` hoặc `data_that`; cần bổ sung nguồn có thể kiểm chứng theo `eval/README.md`. Metric `deep_link_ux_readiness` hiện kiểm URL `?t=seconds` đối chiếu timestamp trong transcript; đây là chỉ báo kỹ thuật, chưa phải kết quả đo thao tác ≤2 lần nhấn. Không tuyên bố đã đạt chuẩn trước khi có kết quả chấm.
-- Kết quả: lượt 1 __/__ (__%) · lượt 2 __/__ (__%) — run ID: __ / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 `24/30 (80%)` · lượt 2 `30/30 (100%)` — run ID: `run-1@20261127-191558` / `run-2@20261127-191649` (`openai/gpt-oss-20b`, chấm bởi Trương Văn Phong) → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao:
+- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-1.csv` (`50` phiên, `seed 42`, đo token trên `qwen2.5:3b`, tỉ lệ đạt lấy từ `eval/run-2.csv` `openai/gpt-oss-20b`)
+- Chi phí / task thành công: `$0.00021 (≈ 5 ₫)` (`gemini-3.1-flash-lite`) · `$0.0012 (≈ 31 ₫)` (`gemini-4-hydrogen`)
+- Chi phí / tháng ở quy mô thật (`gemini-3.1-flash-lite`): thấp (143 người) `$0.1397 (≈ 3.493 ₫)` · cơ sở (436 người) `$0.4260 (≈ 10.649 ₫)` · cao (700 người) `$0.6839 (≈ 17.098 ₫)` → chi tiết `cost/cost-estimate.md`
+- So với impact / người / tháng (§2): chi phí chỉ `$0.00098 (≈ 24 ₫)/người/tháng` ở kịch bản cơ sở (rất thấp so với 10–20 phút/lần tự thuật), đáng triển khai ở tầng model nhẹ nếu xác nhận thêm pain thực tế.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
@@ -146,6 +146,7 @@ flowchart LR
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
 | 27/11 · chuẩn bị CP3–CP4 | Quốc hoàn thiện demo Đúng đoạn, nối Groq, giới hạn chờ khi 429, hỗ trợ sửa gợi ý và xem đúng mốc. | Lượt 1: B16, B17, B26–B29 lỗi 429. Lượt 2 giãn nhịp hết lỗi kỹ thuật. Chi tiết phiên bản và thử nghiệm UI: codebase/DEMO.md. |
+| 27/11 · CP3–CP4 | Phong chấm `eval/run-1.csv` & `eval/run-2.csv`, viết `eval/report.md`, thêm Ollama cục bộ (`qwen2.5:3b`) trong `codebase/ai.py`, điền `cost/personas.yaml` từ `evidence/` và chạy mô phỏng 50 phiên `cost/simulate-1.csv`. | Lượt 1 đạt 24/30 (6 lỗi 429) → lượt 2 đạt 30/30; hoàn thiện số liệu chi phí ở `cost/cost-estimate.md` và cập nhật trạng thái chấm chéo trong `eval/README.md`. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

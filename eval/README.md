@@ -29,17 +29,24 @@ python run.py eval --fake  # Chạy giả lập toàn bộ 30 câu tạo eval/ru
 python run.py              # Chạy tương tác CLI với 3 video thật
 ```
 
-## 5. Nguồn thật và chấm chéo — trạng thái cần hoàn thiện
+## 5. Các lượt đã chạy, nguồn thật và chấm chéo
 
-- **Nguồn câu hỏi:** Hiện chưa có 10 câu hỏi thực tế từ người học hoặc dữ liệu câu hỏi có nội dung trong repo. Data BTC hiện chỉ được lưu dưới dạng số tổng hợp và cờ `missing_context`, không có nội dung hỏi/đáp để chuyển thành câu benchmark. Ghi chép phỏng vấn ở `evidence/summary.md` cũng chưa cung cấp đủ 10 câu hỏi nguyên gốc. Vì vậy chưa thể ghi nhận mốc 10/30 mà không bịa nguồn.
-- **Chấm hai người:** Repo chưa có `eval/run-N.csv` chứa đầu ra để chấm. Sau khi có một lượt chạy thật, hai người chấm độc lập 5 đầu ra, không xem điểm của nhau trước khi nộp; dùng cùng `pass_criterion` và `eval/metric_spec.yaml`. Sau đó đối chiếu bất đồng, ghi rõ điểm ban đầu và kết quả thống nhất.
+### Bảng tổng hợp các lượt chạy
+
+| Lượt | Run ID | Model | Đạt / tổng | % | Ghi chú kỹ thuật |
+|---|---|---|---|---|---|
+| Lượt 1 | `run-1@20261127-191558` | `openai/gpt-oss-20b` | 24/30 | 80% | 6 câu (`B16`, `B17`, `B26`–`B29`) lỗi `Groq HTTP 429` |
+| Lượt 2 | `run-2@20261127-191649` | `openai/gpt-oss-20b` | 30/30 | 100% | Hết lỗi 429 sau retry + giãn nhịp 3s; `B21` cần lưu ý menu CLI hiện chung 3 video |
+
+- **Nguồn câu hỏi:** Hiện chưa có 10 câu hỏi thực tế từ người học hoặc dữ liệu câu hỏi có nội dung trong repo (`0/30 nguoi_dung`). Data BTC hiện chỉ được lưu dưới dạng số tổng hợp và cờ `missing_context`; khảo sát `evidence/survey/results.csv` (9 dòng) không chứa câu hỏi tự luận nguyên gốc và `evidence/interviews/P1.md`–`P9.md` là hồ sơ giả lập từ khảo sát. Vì vậy chưa thể ghi nhận mốc 10/30 mà không bịa nguồn.
+- **Chấm hai người:** `eval/run-1.csv` và `eval/run-2.csv` đã được Người chấm A (Trương Văn Phong) chấm theo `pass_criterion` và `eval/metric_spec.yaml`. Dưới đây là 5 đầu ra đại diện từ `run-2@20261127-191649` (đủ 3 nhóm `thuong`, `kho`, `tu_choi`) chuẩn bị sẵn để Người chấm B (thành viên khác trong nhóm) chấm độc lập và đối chiếu:
 
 | Run ID / câu | Người chấm A | Người chấm B | Kết quả sau đối chiếu | Ghi chú bất đồng |
 |---|---|---|---|---|
-| Chưa có output | — | — | — | Chưa thể chấm |
-| Chưa có output | — | — | — | Chưa thể chấm |
-| Chưa có output | — | — | — | Chưa thể chấm |
-| Chưa có output | — | — | — | Chưa thể chấm |
-| Chưa có output | — | — | — | Chưa thể chấm |
+| `run-2@20261127-191649` / `B01` (`thuong`) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
+| `run-2@20261127-191649` / `B10` (`thuong`) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
+| `run-2@20261127-191649` / `B16` (`kho`) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
+| `run-2@20261127-191649` / `B21` (`kho` · G10) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | Lưu ý kiểm tra menu CLI chưa lọc riêng từ khoá `context` |
+| `run-2@20261127-191649` / `B28` (`tu_choi` · tấn công) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
 
 Mục tiêu theo hướng dẫn: hai người chấm thống nhất ít nhất 4/5 đầu ra. Chỉ điền bảng bằng đầu ra thật và điểm chấm thật.

@@ -12,3 +12,6 @@ Tài liệu ghi nhận minh bạch các phần có sự hỗ trợ của công c
 
 ### Phần triển khai của Quốc — CP3 và chuẩn bị CP4
 Codex hỗ trợ viết frontend Đúng đoạn, tích hợp Groq, rà hành vi thiếu căn cứ, xử lý 429 và ghi video từ lượt chạy thật. Các kiểm tra kỹ thuật và giới hạn được ghi trong codebase/DEMO.md. Việc chấm nội dung theo benchmark thuộc bước rà soát riêng của nhóm.
+
+### Phần triển khai của Phong — CP3 và chuẩn bị CP4
+Antigravity hỗ trợ thêm nhánh chạy Ollama cục bộ (`qwen2.5:3b`) trong `codebase/ai.py`, rà soát và điền nháp cột `pass`/`ghi_chu` cho `eval/run-1.csv` và `eval/run-2.csv`, cấu hình `cost/personas.yaml` theo số liệu `evidence/`, chạy `python run.py simulate` 50 phiên và tổng hợp `eval/report.md`, `cost/cost-estimate.md`. Toàn bộ điểm chấm `pass`, nguồn giả định `(tự ước tính)` và ghi chú sai khác model (`qwen2.5:3b` vs `openai/gpt-oss-20b`) được Phong kiểm tra trực tiếp trước khi hoàn tất; các mục cần người thật (chấm chéo 2 người, thử nghiệm người dùng `validation/log.md`) giữ nguyên chờ thực hiện thực tế.
