@@ -17,10 +17,10 @@ Chạy `python run.py` từ thư mục gốc, mở địa chỉ **Giao diện de
 |---|---|---|
 | CP1 | TEAMS và canvas ghi nhiệm vụ tìm đoạn | Khung check đọc được bốn thành viên |
 | CP2 | Luồng mock, nguồn transcript và sơ đồ trong spec §4 | Chạy cùng điểm vào python run.py |
-| CP3 | Groq chọn mã đoạn; video dự phòng dài 30 giây; eval/run-1.csv và trace | Lượt 1 có 6 lỗi 429, giao Phong chấm x/N |
-| CP4 | Thử lại có giới hạn khi 429, lần chạy thứ hai giãn nhịp; demo ca thường và ca khó | run-2.csv hoàn thành 30 câu không có lỗi kỹ thuật; chưa chấm pass |
+| CP3 | Groq chọn mã đoạn; video dự phòng dài 30 giây; eval/run-1.csv và trace | Phong đã chấm 24/30 (80%); 6 lỗi HTTP 429. Run ID: run-1@20261127-191558 |
+| CP4 | Thử lại có giới hạn khi 429, lần chạy thứ hai giãn nhịp; demo ca thường và ca khó | Phong đã chấm 30/30 (100%) trên benchmark hiện tại. Run ID: run-2@20261127-191649 |
 | Khóa repo | Changelog, khai báo AI, ghi chép reflection | Quốc đọc lại reflection theo trải nghiệm thực tế trước khi nộp |
 
 Lượt 1 trên main edcfcc0, không giãn nhịp: 24/30 có output. Lượt 2 sau cập nhật chính sách thử lại và giãn nhịp 3 giây: 30/30 có output. Hai thay đổi đồng thời nên không thể quy riêng hiệu quả cho retry. Phần xếp hạng theo cụm từ hiếm và frontend được hoàn thiện tiếp sau khi khởi chạy lượt 2. Kiểm thử bổ sung trên bản cuối bằng Edge với Groq thật cho câu không dấu, yêu cầu làm rõ, giới hạn nguồn và cấm chọn đáp án.
 
-Phong chấm theo metric_spec trước khi score, sau đó chạy simulate với rate-from lượt 2. Tú xác nhận nguồn câu thử và bằng chứng người dùng, Minh kiểm slide và link video ở tab ẩn danh. Riêng số câu có output không dùng làm điểm đạt.
+Kết quả chấm của Phong ở eval/report.md; mô phỏng 50 phiên và giới hạn so sánh model ở cost/cost-estimate.md. Tú xác nhận nguồn câu thử và bằng chứng người dùng, Minh kiểm slide và link video ở tab ẩn danh. Riêng số câu có output không dùng làm điểm đạt.

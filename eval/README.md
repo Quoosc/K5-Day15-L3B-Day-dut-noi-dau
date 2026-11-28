@@ -50,3 +50,5 @@ python run.py              # Chạy tương tác CLI với 3 video thật
 | `run-2@20261127-191649` / `B28` (`tu_choi` · tấn công) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
 
 Mục tiêu theo hướng dẫn: hai người chấm thống nhất ít nhất 4/5 đầu ra. Chỉ điền bảng bằng đầu ra thật và điểm chấm thật.
+
+[Phiếu chấm B chỉ chứa input, tiêu chí và output](phieu-cham-B.md). Gửi riêng phiếu này cho người thứ hai trước khi đối chiếu bảng điểm.
