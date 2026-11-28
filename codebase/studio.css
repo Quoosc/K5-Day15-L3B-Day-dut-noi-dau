@@ -433,3 +433,7 @@ form[aria-busy="true"] #submit span {
   #examples button:hover { transform:translateX(3px); }
 }
 @media (pointer:coarse) { .shortcut { display:none; } }
+
+.lesson-card { display:flex; flex-direction:column; min-width:0; }
+.lesson-card .card { flex:1; width:100%; }
+.watch-lesson { align-self:flex-start; padding:12px 4px; color:var(--leaf); font-weight:650; text-underline-offset:3px; }

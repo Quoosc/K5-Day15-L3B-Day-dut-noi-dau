@@ -27,7 +27,12 @@ async function loadCatalog(){
     still.append(img,element('span',v.duration,'stamp'));const copy=element('span','','copy');
     copy.append(element('small',v.speaker+' · '+v.count+' đoạn'),element('strong',v.title));
     card.append(still,copy);card.onclick=()=>{if(busy)return;clearResult();$('scope').value=v.video_id;edit()};
-    $('cards').append(card);
+    const lesson = element('div', '', 'lesson-card');
+    const watch = element('a', '▶  Xem toàn bộ video', 'watch-lesson');
+    watch.href = '/media/' + encodeURIComponent(v.video_id);
+    watch.setAttribute('aria-label', 'Xem toàn bộ video: ' + v.title);
+    lesson.append(card, watch);
+    $('cards').append(lesson);
   }
 }
 for(const q of ['Vì sao Transformer cần biết thứ tự các từ?','Mounted khác Unmounted ở điểm nào?','Mình chưa hiểu context trong bài nào.']){
@@ -51,6 +56,7 @@ async function search(clarification=''){
       $('topic').textContent=active.refusal?'Tự đối chiếu trong bài giảng':active.topic;
       $('source').textContent=active.code+' · '+active.start+' – '+active.end;
       $('excerpt').textContent=active.text?'Theo bản ghi đoạn giảng: '+active.text:active.refusal;
+      player.poster='/frames/'+encodeURIComponent(active.video_id)+'.jpg';
       player.src='/media/'+encodeURIComponent(active.video_id)+'#t='+active.seconds;
       const duration=catalog.get(active.video_id)?.duration||active.end;
       $('interval').textContent='Đoạn chọn · '+active.start+' – '+active.end;$('total').textContent=duration;
