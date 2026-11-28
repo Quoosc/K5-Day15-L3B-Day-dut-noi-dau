@@ -39,7 +39,7 @@ python run.py              # Chạy tương tác CLI với 3 video thật
 | Lượt 2 | `run-2@20261127-191649` | `openai/gpt-oss-20b` | 30/30 | 100% | Hết lỗi 429 sau retry + giãn nhịp 3s; `B21` cần lưu ý menu CLI hiện chung 3 video |
 
 - **Nguồn câu hỏi:** Hiện chưa có 10 câu hỏi thực tế từ người học hoặc dữ liệu câu hỏi có nội dung trong repo (`0/30 nguoi_dung`). Data BTC hiện chỉ được lưu dưới dạng số tổng hợp và cờ `missing_context`; khảo sát `evidence/survey/results.csv` (9 dòng) không chứa câu hỏi tự luận nguyên gốc và `evidence/interviews/P1.md`–`P9.md` là hồ sơ giả lập từ khảo sát. Vì vậy chưa thể ghi nhận mốc 10/30 mà không bịa nguồn.
-- **Chấm hai người:** `eval/run-1.csv` và `eval/run-2.csv` đã được Người chấm A (Trương Văn Phong) chấm theo `pass_criterion` và `eval/metric_spec.yaml`. Dưới đây là 5 đầu ra đại diện từ `run-2@20261127-191649` (đủ 3 nhóm `thuong`, `kho`, `tu_choi`) chuẩn bị sẵn để Người chấm B (thành viên khác trong nhóm) chấm độc lập và đối chiếu:
+- **Chấm hai người:** `eval/run-1.csv` và `eval/run-2.csv` đã được Người chấm A (Trương Văn Phong) chấm theo `pass_criterion` và `eval/metric_spec.yaml`. Phiếu chấm ẩn điểm Người chấm A được đặt tại `eval/phieu-cham-B.md` gồm 5 đầu ra đại diện từ `run-2@20261127-191649` (đủ 3 nhóm `thuong`, `kho`, `tu_choi`) để thành viên khác trong nhóm chấm độc lập và đối chiếu:
 
 | Run ID / câu | Người chấm A | Người chấm B | Kết quả sau đối chiếu | Ghi chú bất đồng |
 |---|---|---|---|---|
