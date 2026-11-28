@@ -136,13 +136,13 @@ flowchart LR
 - So với impact / người / tháng (§2): chưa so sánh được vì impact pain chưa định lượng. Mô phỏng chi phí chỉ là kịch bản dùng giả định từ survey, không chứng minh hiệu quả kinh tế hay quy mô pain.
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+- Các nguồn nghiên cứu dùng mã P/S. Khi demo, dùng câu hỏi đã bỏ thông tin cá nhân. Không nhập API key hoặc hồ sơ phỏng vấn vào câu hỏi.
+- AI từ chối chọn đáp án hộ, bịa mã đoạn hoặc mốc thời gian.
+- Gợi ý nhầm làm học viên mất thời gian. Hiện căn cứ và cho chọn lại chủ đề khi truy vấn mơ hồ (B21).
 
 ## §10. Phân công & changelog
-- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
-- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
+- Minh chốt phạm vi và bản nộp. Tú phụ trách nguồn và phỏng vấn. Quốc tích hợp truy xuất, model và demo. Phong phụ trách benchmark, đánh giá và mô phỏng.
+- AI hỗ trợ xây dựng bản thử và tổng hợp slide từ hồ sơ nhóm. Xem `docs/ai-usage.md` và đối chiếu số với CSV của từng lượt.
 - Chấm chéo phiếu B: TV2 đã ghi 4/5; A và B thống nhất 4/5, bất đồng B21. Phiếu có phần rà soát Codex phía trên bảng TV2 nên không xác nhận đây là chấm mù; xem `eval/README.md`.
 - Nguồn eval: `benchmark.csv` dùng `source=tu_viet` cho 30 câu; `evidence/users.md` chỉ ánh xạ kịch bản, không chứng minh nguồn người dùng. Không đổi nhãn hoặc `expected` khi chưa có nguồn gốc thật.
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
@@ -161,3 +161,5 @@ flowchart LR
 | 28/11 · trước rà soát CP3 | Ghi hạn chế nguồn tại thời điểm đó (P1–P9 khi ấy là hồ sơ giả lập; BTC không có nội dung câu hỏi), thêm cảnh báo 0/30 câu benchmark có nguồn thật. | Tránh gán nhãn nguồn hoặc trích dẫn không kiểm chứng. |
 | 28/11 · rà soát CP3 | Sửa survey theo CSV; hạ bằng chứng phỏng vấn từ 8 U xuống bốn biên bản trực tiếp; bỏ impact ngoại suy; giữ U8 quote ở trạng thái chưa xác minh; phân loại lại benchmark thành câu tự viết. | Nguồn hồ sơ mâu thuẫn: P3/P6–P9 là giả lập, chỉ P1/P2/P4/P5 ghi trực tiếp; không có căn cứ cho 30 câu là lời người dùng. |
 | 28/11 · đồng bộ hồ sơ CP4 | Sửa mô tả model ở §4 theo hai lượt eval dùng Groq; chốt số liệu pain theo nguồn và giới hạn; ghi rõ hiện có bốn trích dẫn, U8 còn thiếu nguồn; đồng bộ điểm B trong README và mô tả điều kiện xác nhận chấm độc lập. | Tránh để trạng thái CP2 cũ, yêu cầu 5 trích dẫn, số điểm B và mức độ xác nhận pain mâu thuẫn với hồ sơ hiện có. |
+
+| 28/11 · chuẩn bị bàn giao | Hoàn thiện slide, README và mô tả an toàn, phân công. | Đồng bộ bản nộp với báo cáo đánh giá, bằng chứng và mô phỏng. |
