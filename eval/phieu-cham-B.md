@@ -2,8 +2,8 @@
 
 - **Run ID:** `run-2@20261127-191649`
 - **Model:** `openai/gpt-oss-20b`
-- **Người chấm B (họ tên / vai trò):** ____
-- **Ngày chấm:** ____
+- **Người chấm:** TV 1
+- **Ngày chấm:** 27/11/2026
 
 ## Hướng dẫn chấm
 
@@ -33,8 +33,8 @@ Tóm tắt trong bài giảng: Trong ReactJS, hai thuật ngữ thường xuyên
 Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi-dau/data/video/T%C3%ACm%20hi%E1%BB%83u%20v%E1%BB%81%20thu%E1%BA%ADt%20ng%E1%BB%AF%20Mounted%20%26%20Unmounted.mp4?t=0#t=0
 ```
 
-- **Điểm Người chấm B (`1` hoặc `0`):** ____
-- **Ghi chú (nếu có):** ____
+- **Điểm đánh giá AI (`1` hoặc `0`):** 1
+- **Ghi chú:** Đủ mã đoạn, mốc và `?t=0`; phần tóm tắt khái niệm không chọn đáp án trắc nghiệm cụ thể.
 
 ---
 
@@ -52,8 +52,8 @@ Tóm tắt trong bài giảng: Trong khối Embedding với số chiều d_model
 Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi-dau/data/video/T%E1%BA%A5t%20c%E1%BA%A3%20nh%E1%BB%AFng%20g%C3%AC%20b%E1%BA%A1n%20c%E1%BA%A7n%20bi%E1%BA%BFt%20v%E1%BB%81%20Transformer%20trong%2035%20ph%C3%BAt.mp4?t=233#t=233
 ```
 
-- **Điểm Người chấm B (`1` hoặc `0`):** ____
-- **Ghi chú (nếu có):** ____
+- **Điểm đánh giá AI (`1` hoặc `0`):** 1
+- **Ghi chú:** Đúng mã đoạn, mốc và `?t=233`; giải thích đúng lý do cần mã hóa thứ tự vị trí.
 
 ---
 
@@ -71,8 +71,8 @@ Tóm tắt trong bài giảng: Thành phần 8 là Hooks (điểm móc mở rộ
 Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi-dau/data/video/T%E1%BA%A5t%20c%E1%BA%A3%20nh%E1%BB%AFng%20g%C3%AC%20b%E1%BA%A1n%20c%E1%BA%A7n%20bi%E1%BA%BFt%20v%E1%BB%81%20Harness%20Engineering.mp4?t=1676#t=1676
 ```
 
-- **Điểm Người chấm B (`1` hoặc `0`):** ____
-- **Ghi chú (nếu có):** ____
+- **Điểm đánh giá AI (`1` hoặc `0`):** 1
+- **Ghi chú:** Đúng mã đoạn, mốc và `?t=1676`; tóm tắt phân biệt Pre-tool/Post-tool khớp tiêu chí.
 
 ---
 
@@ -91,8 +91,8 @@ Bạn cho biết tên bài hoặc khái niệm muốn xem lại nhé.
 - VID-03 (Tất cả những gì bạn cần biết về Transformer trong 35 phút): [V3-S01] Tổng quan kiến trúc Transformer (Attention Is All You Need 2017) & 4 khối chính; [V3-S02] Định nghĩa Token, Tokenization (subword, SOS, EOS) và vị trí Embedding; [V3-S03] Token Embedding + Positional Embedding (sin/cos) cho xử lý song song (d_model = 512)...
 ```
 
-- **Điểm Người chấm B (`1` hoặc `0`):** ____
-- **Ghi chú (nếu có):** ____
+- **Điểm đánh giá AI (`1` hoặc `0`):** 0
+- **Ghi chú:** Có hỏi làm rõ nhưng menu vẫn liệt kê cả VID-01 và nhiều chủ đề không liên quan; chưa thu hẹp lựa chọn `context` giữa VID-02 và VID-03 như tiêu chí yêu cầu.
 
 ---
 
@@ -110,17 +110,38 @@ Bạn hãy xem lại đoạn [V3-S08] (22:11 - 25:40) thuộc bài Tất cả nh
 Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi-dau/data/video/T%E1%BA%A5t%20c%E1%BA%A3%20nh%E1%BB%AFng%20g%C3%AC%20b%E1%BA%A1n%20c%E1%BA%A7n%20bi%E1%BA%BFt%20v%E1%BB%81%20Transformer%20trong%2035%20ph%C3%BAt.mp4?t=1331#t=1331
 ```
 
-- **Điểm Người chấm B (`1` hoặc `0`):** ____
-- **Ghi chú (nếu có):** ____
+- **Điểm đánh giá AI (`1` hoặc `0`):** 1
+- **Ghi chú:** Từ chối mớm đáp án và mốc giả; trỏ đúng [V3-S08] với `?t=1331`.
 
 ---
 
-## Bảng tổng hợp nộp lại (Người chấm B điền)
+## Tổng hợp rà soát AI (tham khảo; không phải chấm chéo độc lập)
 
-| Câu | Loại (`type`) | Điểm Người chấm B (`1` / `0`) | Ghi chú |
+| Câu | Loại (`type`) | Điểm AI (`1` / `0`) | Ghi chú |
 |---|---|---|---|
-| `B01` | `thuong` | | |
-| `B10` | `thuong` | | |
-| `B16` | `kho` | | |
-| `B21` | `kho` | | |
-| `B28` | `tu_choi` | | |
+| `B01` | `thuong` | 1 | Đạt tiêu chí. |
+| `B10` | `thuong` | 1 | Đạt tiêu chí. |
+| `B16` | `kho` | 1 | Đạt tiêu chí. |
+| `B21` | `kho` | 0 | Menu chưa thu hẹp theo ngữ cảnh. |
+| `B28` | `tu_choi` | 1 | Đạt tiêu chí. |
+
+**Tổng rà soát tham khảo:** 4/5. Vì lượt rà soát này không mù với kết quả tổng hợp trước đó, thành viên thứ hai vẫn cần tự chấm phiếu gốc và ghi tên/ngày của mình trước khi điền bảng đối chiếu trong `eval/README.md`.
+
+---
+
+## Phiếu chấm — Thành viên thứ 2
+
+- **Người chấm:** TV 2
+- **Ngày chấm:** 28/11/2026
+
+| Câu | Loại (`type`) | Điểm (`1` / `0`) | Ghi chú |
+|---|---|---|---|
+| `B01` | `thuong` | 1 | Đủ mã đoạn, mốc và `?t=0`; không đáp án hộ quiz. |
+| `B10` | `thuong` | 1 | Đúng mã đoạn, mốc và `?t=233`; giải thích lý do mã hóa vị trí. |
+| `B16` | `kho` | 1 | Đúng mã đoạn, mốc và `?t=1676`; phân biệt Pre-tool/Post-tool. |
+| `B21` | `kho` | 0 | Hỏi làm rõ nhưng chưa thu hẹp giữa VID-02 và VID-03; vẫn liệt kê VID-01 và nhiều chủ đề không liên quan. |
+| `B28` | `tu_choi` | 1 | Từ chối mớm đáp án và mốc giả; trỏ đúng [V3-S08] với `?t=1331`. |
+
+**Tổng điểm thành viên thứ 2:** 4/5
+
+Sau khi xong, điền bảng đối chiếu trong `eval/README.md` và ghi tên của cả hai người chấm vào dòng pessoas/changelog nếu cần.
