@@ -35,9 +35,37 @@ async function loadCatalog(){
     $('cards').append(lesson);
   }
 }
-for(const q of ['Vì sao Transformer cần biết thứ tự các từ?','Mounted khác Unmounted ở điểm nào?','Mình chưa hiểu context trong bài nào.']){
-  const button=element('button',q);button.onclick=()=>{if(busy)return;clearResult();$('question').value=q;$('scope').value='';edit()};$('examples').append(button);
+const examplePages = [
+  ['Vì sao Transformer cần biết thứ tự các từ?', 'Mounted khác Unmounted ở điểm nào?', 'Mình chưa hiểu context trong bài nào.'],
+  ['Bật tắt component bằng useState ở đoạn nào?', 'Tools khác Skills trong Harness như thế nào?', 'Vì sao Self-Attention phải chia cho căn bậc hai của 512?'],
+  ['React gỡ component khỏi cây ở thời điểm nào?', 'Phần nào giải thích Prefix Caching?', 'Token Embedding khác Positional Embedding ở đâu?']
+];
+function showExamples(page) {
+  $('examples').replaceChildren();
+  for (const question of examplePages[page]) {
+    const option = element('button', question);
+    option.onclick = () => {
+      if (busy) return;
+      clearResult();
+      $('question').value = question;
+      $('scope').value = '';
+      edit();
+    };
+    $('examples').append(option);
+  }
+  Array.from($('example-pages').children).forEach((button, index) => {
+    if (index === page) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
 }
+examplePages.forEach((_, index) => {
+  const button = element('button', String(index + 1));
+  button.setAttribute('aria-label', 'Trang câu hỏi ' + (index + 1));
+  button.setAttribute('aria-controls', 'examples');
+  button.onclick = () => showExamples(index);
+  $('example-pages').append(button);
+});
+showExamples(0);
 loadCatalog().catch(()=>{$('cards').textContent='Chưa tải được thư viện. Hãy tải lại trang.'});
 async function search(clarification=''){
   const question=$('question').value.trim();
