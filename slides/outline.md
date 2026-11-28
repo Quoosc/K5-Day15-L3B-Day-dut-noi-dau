@@ -24,3 +24,5 @@ Ai nói trang nào (mỗi người ≥1 phần):
 | 2–3, 7–8 | Minh |
 | 4 | Quốc |
 | 5–6 | Phong |
+
+Minh dùng trang 1–8 để trình bày và trang 9–10 khi trả lời câu hỏi. [Mở thư mục Drive chứa slide CP4](https://drive.google.com/drive/folders/1fiKwkegMBMq5WnrTEIoN_0LrvhwNksK2?usp=drive_link) · [Mở PDF trong repo](../demo-slides.pdf).

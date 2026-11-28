@@ -10,7 +10,7 @@ Từ thư mục gốc, dùng Python 3.10 trở lên. Tạo file .env từ .env.e
 Mở địa chỉ giao diện trong terminal. Thử hỏi “Transformer dùng Positional Embedding ở đoạn nào?” rồi chọn xem từ 03:53. Với câu chỉ nhớ từ “context”, chọn chủ đề trước khi mở video. [Hướng dẫn chạy](codebase/DEMO.md)
 
 ## Bản trình bày
-[Slide nộp CP4](demo-slides.pdf) · [PowerPoint chỉnh sửa](slides/demo-slides.pptx) · [Video demo dự phòng](slides/quoc-demo-30s.mp4) · [Thư mục Drive của nhóm](https://drive.google.com/drive/folders/1fiKwkegMBMq5WnrTEIoN_0LrvhwNksK2?usp=drive_link)
+[Slide nộp CP4](demo-slides.pdf) · [PowerPoint chỉnh sửa](slides/demo-slides.pptx) · [Video demo dự phòng](slides/quoc-demo-30s.mp4) · [Slide CP4 trên Drive của nhóm (10 trang)](https://drive.google.com/drive/folders/1fiKwkegMBMq5WnrTEIoN_0LrvhwNksK2?usp=drive_link)
 
 ## Bằng chứng và kết quả
 - [Canvas](canvas.md), [thiết kế và ngưỡng CP2](spec.md), [nguồn và giới hạn bằng chứng](evidence/summary.md). Truy được 4 trích dẫn trong các biên bản.
