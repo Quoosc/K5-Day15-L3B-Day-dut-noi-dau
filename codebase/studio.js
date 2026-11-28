@@ -37,6 +37,7 @@ loadCatalog().catch(()=>{$('cards').textContent='Chưa tải được thư việ
 async function search(clarification=''){
   const question=$('question').value.trim();
   if(!question){edit();return}if(busy)return;busy=true;
+  form.setAttribute("aria-busy","true");
   clearResult();$('submit').disabled=true;$('question').readOnly=true;$('scope').disabled=true;
   $('status').textContent='Đang tra transcript và đối chiếu các đoạn phù hợp…';
   try{
@@ -60,7 +61,7 @@ async function search(clarification=''){
     const s=r.stats;$('usage').textContent=s.model_calls?s.models.join(', ')+' · '+s.model_calls+' lần gọi · token vào '+s.tokens_in+' / ra '+s.tokens_out:'Tra cứu cục bộ · không gọi model';
     $('status').textContent='Đã tra cứu xong.';$('result').focus();
   }catch{ $('status').textContent='Chưa lấy được gợi ý. Kiểm tra kết nối rồi bấm Tìm đoạn cần ôn để thử lại.' }
-  finally{busy=false;$('submit').disabled=false;$('question').readOnly=false;$('scope').disabled=false}
+  finally{form.removeAttribute("aria-busy");busy=false;$('submit').disabled=false;$('question').readOnly=false;$('scope').disabled=false}
 }
 form.onsubmit=e=>{e.preventDefault();search()};
 $('scope').onchange=clearResult;$('question').oninput=clearResult;
@@ -68,3 +69,10 @@ $('play').onclick=async()=>{if(!active)return;try{player.currentTime=active.seco
 $('revise').onclick=()=>{$('refine').hidden=false;$('detail').focus()};
 $('again').onclick=()=>{const d=$('detail').value.trim();if(d)search(d);else $('detail').focus()};
 $('detail').onkeydown=e=>{if(e.key==='Enter')$('again').click()};
+
+$('question').addEventListener('keydown', event => {
+  if ((event.ctrlKey || event.metaKey) && event.key === 'Enter' && !event.isComposing) {
+    event.preventDefault();
+    if (!busy) form.requestSubmit();
+  }
+});
