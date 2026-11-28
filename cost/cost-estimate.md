@@ -30,9 +30,9 @@ Lượt mô phỏng: `cost/simulate-1.csv` · run ID `simulate-1@20261127-232307
 | Model (giá) | Chi phí / phiên | Chi phí / task thành công | Chi phí / câu hỏi đạt | Chi phí / tháng — thấp (143 người) | Chi phí / tháng — cơ sở (436 người) | Chi phí / tháng — cao (700 người) | Chi phí / người / tháng (cơ sở) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | gemini-3.1-flash-lite (vào 0.25 · ra 1.5 $/1M) | $0.00021 (≈ 5 ₫) | $0.00021 (≈ 5 ₫) | $0.000093 (≈ 2 ₫) | $0.1397 (≈ 3.493 ₫) | $0.4260 (≈ 10.649 ₫) | $0.6839 (≈ 17.098 ₫) | $0.00098 (≈ 24 ₫) |
-| gemini-4-hydrogen (vào 1.5 $/1M · ra 7.5 $/1M) | $0.0012 (≈ 31 ₫) | $0.0012 (≈ 31 ₫) | $0.00054 (≈ 14 ₫) | $0.8093 (≈ 20.231 ₫) | $2.47 (≈ 61.685 ₫) | $3.96 (≈ 99.035 ₫) | $0.0057 (≈ 141 ₫) |
+| gemini-4-hydrogen (vào 1.5 · ra 7.5 $/1M) | $0.0012 (≈ 31 ₫) | $0.0012 (≈ 31 ₫) | $0.00054 (≈ 14 ₫) | $0.8093 (≈ 20.231 ₫) | $2.47 (≈ 61.685 ₫) | $3.96 (≈ 99.035 ₫) | $0.0057 (≈ 141 ₫) |
 
-*(Ghi chú nguyên văn từ bảng tóm tắt: ở cột `gemini-4-hydrogen`, giá gốc trong `simulate-1-summary.md` là `vào 1.5 · ra 7.5 $/1M`; tỉ lệ đạt lấy từ `eval/run-2.csv` (`openai/gpt-oss-20b`), khác model đo token `qwen2.5:3b`.)*
+*(Ghi chú: tỉ lệ đạt lấy từ `eval/run-2.csv` (`openai/gpt-oss-20b`), khác model đo token `qwen2.5:3b`.)*
 
 Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**.
 
