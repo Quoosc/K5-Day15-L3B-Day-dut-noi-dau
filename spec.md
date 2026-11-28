@@ -7,34 +7,34 @@ Track: [x] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: A1 · EdTech ·
 Data BTC cấp đã dùng (không commit nguyên file): `data/preclass/chat.csv` và `data/preclass/events.csv` của repo đề (05–25/11/2026), dùng để phân tích bằng chứng ban đầu; chỉ lưu số tổng hợp và ví dụ ID ẩn danh tại `evidence/data-mining.md`. Kho tri thức của bản chạy thử là `data/lecture_transcripts.json` (35 phân đoạn từ 3 video trong `data/video/`, xem `data/DATA_CARD.md`); không dùng nhật ký hành vi BTC làm nguồn trả lời.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
-- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
+- Bốn ghi chép được đánh dấu phỏng vấn trực tiếp (P1, P2, P4, P5) mô tả luồng: mở lại video → ước lượng vị trí → kéo seekbar → tua thêm khi lỡ đoạn → xem lại phần tìm được. Đây là lời kể, chưa có quan sát màn hình/ảnh chụp từ tài khoản người học để kiểm chứng luồng chung.
+- Nguồn hiện tại: video pre-class và seekbar; các ghi chép nói người học tự tìm thủ công. Chưa có bằng chứng cho nhận định rằng trợ giảng luôn phản hồi chậm hoặc video nào cũng thiếu timestamp.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (vai mục tiêu, đã xác nhận qua phỏng vấn thực tế): Học viên lớp L3B đang học bài pre-class, vừa làm sai câu hỏi trắc nghiệm hoặc vướng khái niệm khó và cần mở lại đúng đoạn video giải thích để tự ôn tập.
+- Người dùng chính (vai mục tiêu): Học viên L3B đang học bài pre-class, vừa làm sai quiz hoặc vướng khái niệm và muốn tìm lại đoạn giải thích. Bốn ghi chép P1/P2/P4/P5 được đánh dấu là phỏng vấn trực tiếp; không đại diện toàn lớp.
 - Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): Tìm và xem đúng đoạn bài giảng giải thích khái niệm đang vướng trong lúc làm bài pre-class để hiểu bài và tự hoàn thành câu hỏi quiz.
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: Học viên tự kéo thanh trượt (seekbar) dò hình ảnh trên video dài 20–35 phút, đoán mò vị trí giữa/cuối video hoặc đọc lướt bình luận. Cách này thường xuyên bị trượt mốc thời gian, phải tua đi tua lại nhiều lần, mất từ 15–25 phút mỗi lượt; học viên vẫn buộc phải dùng vì video không có mục lục timestamp chi tiết và hỏi trợ giảng thì không có phản hồi tức thì trong đêm.
-- Pain (KHÔNG chữ AI): Khi làm sai câu quiz hoặc gặp khái niệm trừu tượng, học viên mất từ 15 đến 25 phút kéo thanh tua video qua lại để mò tìm đoạn giảng, thường xuyên bị trượt mốc hoặc lạc sang phân đoạn khác, gây ức chế tâm lý, đứt gãy mạch tư duy và áp lực trễ hạn nộp bài pre-class trước giờ học.
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`, `evidence/data-mining.md`, `evidence/users.md`):
-  1. **Dữ liệu hệ thống:** 98/1.091 lượt hỏi (9,0%) bị cờ `missing_context=true` từ 49 học viên; log hành vi ghi nhận chuỗi tua lùi liên tiếp (như `A01767` tua lùi 3 lần trong 13 giây từ 283,7s về 84,2s) thể hiện rõ việc mò mẫm vị trí bài giảng.
-  2. **Khảo sát định lượng (n=9):** 7/9 học viên (77,8%) gặp khó khăn khi học và làm quiz; 5/9 chọn cách xem lại/tua đoạn video hoặc hỏi chatbot; 55,6% mất 10–20 phút và 33,3% mất 20–40 phút đến hơn 1 giờ mỗi lần.
-  3. **Phỏng vấn sâu & 30 câu hỏi thực tế (8 học viên U1–U8):** 100% (8/8) học viên xác nhận pain point mất 10–25 phút tua video thủ công khi sai quiz; 5 trích dẫn nguyên văn ghi nhận đầy đủ tại `evidence/summary.md` mục 2.
-- **Nguồn kiểm chứng:** 30 câu hỏi thực tế từ 8 học viên (`U1`–`U8`) trong `evidence/users.md`, 5 biên bản phỏng vấn trực tiếp có trích dẫn nguyên văn (`P1.md`, `P2.md`, `P4.md`, `P5.md`), và bảng tổng hợp bằng chứng đa nguồn tại `evidence/summary.md`.
+-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: P1/P2/P4/P5 kể đã kéo seekbar và có lần lỡ đoạn trước khi tìm được phần cần xem; thời gian lần gần nhất được ghi là 15, 18, 22 và 25 phút. Đây là bốn lời tự thuật, không phải số đo quan sát độc lập.
+- Pain (KHÔNG chữ AI): Bốn ghi chép trực tiếp mô tả việc tìm đoạn video sau khi sai quiz/vướng khái niệm tốn 15–25 phút trong lần gần nhất. Chưa có bằng chứng về tần suất trong toàn lớp hoặc hậu quả trễ hạn phổ biến.
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`, `evidence/data-mining.md`):
+  1. **Data BTC:** 98/1.091 lượt hỏi (9,0%) có cờ `missing_context`; cờ không đo pain. Chỉ có 2/7 câu video quiz lần đầu sai từ cùng một người; 0/2 có seek cùng video trong 15 phút. Chuỗi tua `A01767` xảy ra sau câu trả lời đúng, không cho biết động cơ.
+  2. **Khảo sát n=9:** 8/9 ghi nhận một khó khăn học tập nói chung; 2/9 được mã hóa `video_quiz_difficulty`. Thời gian 6/9 chọn 10–20 phút, nhưng không nối riêng với pain quiz-sai.
+  3. **Phỏng vấn:** bốn hồ sơ được đánh dấu trực tiếp (P1/P2/P4/P5) ghi lại trải nghiệm tìm video; chưa xác minh được câu trích U8, không tính vào số trích dẫn.
+- **Nguồn kiểm chứng:** `evidence/interviews/P1.md`, `P2.md`, `P4.md`, `P5.md`; số tổng hợp BTC ở `evidence/data-mining.md`; survey n=9 ở `evidence/survey/results.csv`. `evidence/users.md` là bản đồ kịch bản tự viết, không phải hồ sơ người thật.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-| Trả lời câu hỏi dưới video bằng ví dụ cụ thể, sát khái niệm đang học | 49/143 người hỏi có cờ missing_context | 2–3 lần/tháng | 10–15 phút đọc và đối chiếu | ~1.500 phút/tháng (~25 giờ) | Có thể làm | Không chọn (phạm vi rộng, phụ thuộc nhiều ngữ cảnh ngoài bài) |
-| **Tìm đúng đoạn video sau khi làm sai quiz (Smart Video Concept Seek)** | **436 học viên hoạt động trong lớp L3B** | **3,5 lần/tháng** (theo phỏng vấn U1–U8) | **22,0 phút** tua video thủ công mỗi lần | **33.572 phút/tháng (~559,5 giờ học tập)** | **Hoàn thành kịp trong hackathon** | **[x] CHỌN (Đau nhất, đo lường được, trọn vẹn lát cắt)** |
-| Hỏi lại/thu hẹp câu hỏi khi lượt hỏi thiếu ngữ cảnh | 49/143 người hỏi | 1–2 lần/tháng | 5–10 phút gõ lại câu hỏi | ~500 phút/tháng (~8,3 giờ) | Có thể làm | Tích hợp thành lớp Guardrail G10 của hướng chọn |
+| Trả lời câu hỏi dưới video bằng ví dụ cụ thể, sát khái niệm đang học | 98/1.091 lượt hỏi có cờ missing_context; không phải số người xác nhận pain | Chưa đo cho cùng pain | Chưa đo | Chưa tính được | Có thể làm | Không chọn trong prototype (phạm vi rộng) |
+| **Tìm đúng đoạn video sau khi làm sai quiz (Smart Video Concept Seek)** | **4 ghi chép trực tiếp** kể trải nghiệm; quy mô toàn lớp chưa biết | **2–6 lần/tháng** trong lời kể của 4 người, không đại diện | **15–25 phút** ở lần gần nhất trong 4 ghi chép | **Chưa thể ngoại suy**; data có 2 câu sai từ cùng 1 người | **Hoàn thành kịp trong hackathon** | **[x] CHỌN làm lát cắt prototype; chưa kết luận đây là pain phổ biến nhất** |
+| Hỏi lại/thu hẹp câu hỏi khi lượt hỏi thiếu ngữ cảnh | 49/143 người hỏi có ít nhất một cờ | Chưa đo pain/tần suất | Chưa đo | Chưa tính được | Có thể làm | Tích hợp thành lớp Guardrail G10 của hướng chọn |
 
-- **Impact / tháng** của hướng chọn: $436 \text{ học viên} \times 3,5 \text{ lần/tháng} \times 22 \text{ phút} = 33.572 \text{ phút} \approx \mathbf{559,5 \text{ giờ học tập/tháng}}$ bị lãng phí vào việc kéo thanh seekbar tua video thủ công. Bản chạy thử giúp học viên nhảy đến đúng giây video trong tối đa 2 lần nhấn (<10 giây), tiết kiệm hơn 98% thời gian tìm kiếm.
-- Hướng chưa chọn: Hướng trả lời câu hỏi bằng ví dụ bên ngoài bị loại vì dễ gây ảo giác ngoài bài giảng; hướng hỏi lại khi thiếu ngữ cảnh được tích hợp làm lớp Guardrail G10 hỗ trợ cho hướng chính.
-- Số lần / tháng của từng kiểu người dùng: U1 (Frontend Newbie) 3–4 lần; U2 (Web Dev) 2–3 lần; U4 (AI Practitioner) 4–6 lần; U5 (ML Enthusiast) 3–4 lần; U8 (Newbie) 3–4 lần (trung bình 3,5 lần/tháng; chi tiết xem `evidence/summary.md`).
+- **Impact / tháng:** Chưa ước lượng được. Không nhân 436 người hoạt động với tần suất/thời gian từ bốn phỏng vấn nhỏ; hai lần sai trong data BTC cùng một người và không có seek sau đó.
+- Hướng chưa chọn: Hướng trả lời câu hỏi bằng ví dụ bên ngoài bị loại khỏi prototype vì vượt nguồn transcript; hướng hỏi lại khi thiếu ngữ cảnh được tích hợp làm lớp Guardrail G10.
+- Tần suất trong bốn ghi chép: P1 3–4; P2 2–3; P4 4–6; P5 3–4 lần/tháng theo tự thuật. Không suy ra tỷ lệ cho lớp.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
-- [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
+- Chưa có khảo sát sản phẩm tương tự hoặc nguồn so sánh được lưu trong repo. Chưa kết luận về đối thủ; cần bổ sung tên sản phẩm, link và ngày kiểm tra trước khi nộp mục này.
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
 - **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả): Khi học viên L3B muốn ôn lại một câu trắc nghiệm pre-class vừa làm sai, trợ lý AI đối chiếu câu hỏi với kho transcript của 3 video bài giảng thật để chọn đúng đoạn giải thích khái niệm và trả về liên kết nhảy thẳng đến mốc thời gian đó trong tối đa 2 lần nhấn.
@@ -132,8 +132,8 @@ flowchart LR
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-1.csv` (`50` phiên, `seed 42`, đo token trên `qwen2.5:3b`, tỉ lệ đạt lấy từ `eval/run-2.csv` `openai/gpt-oss-20b`)
 - Chi phí / task thành công: `$0.00021 (≈ 5 ₫)` (`gemini-3.1-flash-lite`) · `$0.0012 (≈ 31 ₫)` (`gemini-4-hydrogen`)
-- Chi phí / tháng ở quy mô thật (`gemini-3.1-flash-lite`): thấp (143 người) `$0.1397 (≈ 3.493 ₫)` · cơ sở (436 người) `$0.4260 (≈ 10.649 ₫)` · cao (700 người) `$0.6839 (≈ 17.098 ₫)` → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): chi phí chỉ `$0.00098 (≈ 24 ₫)/người/tháng` ở kịch bản cơ sở (rất thấp so với 10–20 phút/lần tự thuật), đáng triển khai ở tầng model nhẹ nếu xác nhận thêm pain thực tế.
+- Chi phí / tháng theo 3 kịch bản quy mô (`gemini-3.1-flash-lite`): thấp (143 tài khoản) `$0.1397 (≈ 3.493 ₫)` · cơ sở (436 tài khoản) `$0.4260 (≈ 10.649 ₫)` · cao (700 tài khoản, *(tự ước tính)*) `$0.6839 (≈ 17.098 ₫)` → chi tiết `cost/cost-estimate.md`; đây không phải số người có pain đã xác nhận.
+- So với impact / người / tháng (§2): chưa so sánh được vì impact pain chưa định lượng. Mô phỏng chi phí chỉ là kịch bản dùng giả định từ survey, không chứng minh hiệu quả kinh tế hay quy mô pain.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
@@ -143,8 +143,8 @@ flowchart LR
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
 - Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
-- Chấm chéo phiếu B: yêu cầu thành viên khác (không phải người viết câu trả lời) dùng `eval/phieu-cham-B.md` chấm 5 đầu ra B01, B10, B16, B21, B28 trước khi mở bảng điểm A trong README.
-- `run.py check` sẽ báo `0/30 câu từ người dùng/dữ liệu thật` — đây là kết quả kỳ vọng vì `benchmark.csv` hiện toàn bộ `source = tu_viet:...` và `P1–P9` là hồ sơ giả lập; không được sửa `expected` hay làm giả nguồn để tắt cảnh báo này.
+- Chấm chéo phiếu B: TV2 đã ghi 4/5; A và B thống nhất 4/5, bất đồng B21. Phiếu có phần rà soát Codex phía trên bảng TV2 nên không xác nhận đây là chấm mù; xem `eval/README.md`.
+- Nguồn eval: `benchmark.csv` dùng `source=tu_viet` cho 30 câu; `evidence/users.md` chỉ ánh xạ kịch bản, không chứng minh nguồn người dùng. Không đổi nhãn hoặc `expected` khi chưa có nguồn gốc thật.
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
@@ -158,4 +158,5 @@ flowchart LR
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-| 28/11 | Ghi rõ hạn chế nguồn trong §1 (P1–P9 giả lập, không có câu trả lời tự luận gốc; BTC không có câu hỏi học viên); ghi yêu cầu chấm chéo phiếu B và cảnh báo run.py check 0/30 câu thật trong §10 | Tuân thủ AGENTS.md: không bịa nguồn thật, không sửa chuẩn đạt/câu thử |
+| 28/11 · trước rà soát CP3 | Ghi hạn chế nguồn tại thời điểm đó (P1–P9 khi ấy là hồ sơ giả lập; BTC không có nội dung câu hỏi), thêm cảnh báo 0/30 câu benchmark có nguồn thật. | Tránh gán nhãn nguồn hoặc trích dẫn không kiểm chứng. |
+| 28/11 · rà soát CP3 | Sửa survey theo CSV; hạ bằng chứng phỏng vấn từ 8 U xuống bốn biên bản trực tiếp; bỏ impact ngoại suy; giữ U8 quote ở trạng thái chưa xác minh; phân loại lại benchmark thành câu tự viết. | Nguồn hồ sơ mâu thuẫn: P3/P6–P9 là giả lập, chỉ P1/P2/P4/P5 ghi trực tiếp; không có căn cứ cho 30 câu là lời người dùng. |

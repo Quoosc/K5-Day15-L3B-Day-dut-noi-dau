@@ -16,3 +16,10 @@
 **Mình nghĩ** một số học viên L3 hỏi khái niệm dưới video nhưng phản hồi còn tổng quát, nên phải xem lại bài hoặc tìm thêm ví dụ để hiểu.
 
 **Mình đúng nếu thấy** ít nhất 2/3 học viên L3 ngoài nhóm kể một tình huống gần đây như vậy và nêu được việc họ đã làm tiếp cùng thời gian bị mất; giả thuyết hẹp “sau câu quiz sai phải tìm đoạn xem lại” cần được kể/đếm riêng. Data hiện có 0/2 lần sai nối với seek cùng video trong 15 phút, nhưng chỉ từ một người nên chưa bác bỏ pain.
+
+## Cập nhật sau CP2 — rà soát CP3 (28/11/2026)
+
+- Bốn ghi chép được đánh dấu phỏng vấn trực tiếp (`P1`, `P2`, `P4`, `P5`) mô tả khó khăn tìm đoạn video; thời gian lần gần nhất lần lượt 15, 18, 22 và 25 phút. Đây là tín hiệu định tính từ bốn hồ sơ, chưa đủ xác nhận tần suất hoặc mức độ pain trong toàn lớp. Người hỏi/ghi cần xác nhận ngày và câu nguyên văn trước khi nộp.
+- Survey hiện có 8/9 dòng `experienced_issue=yes`, nhưng chỉ 2/9 được mã hóa `video_quiz_difficulty`; form gốc không có để kiểm lại câu hỏi hoặc cách mã hóa.
+- Data BTC vẫn cho 0/2 seek cùng video trong 15 phút sau câu sai; cả hai lần từ một người. Vì N nhỏ và `session_id` trống, kết quả không xác nhận cũng không bác bỏ pain mục tiêu.
+- Kết luận hiện tại: giả thuyết broad được bốn ghi chép gợi ý; mức phổ biến và lát cắt quiz-sai chưa được xác nhận. Không nhân rộng số liệu này cho 436 người hoạt động.

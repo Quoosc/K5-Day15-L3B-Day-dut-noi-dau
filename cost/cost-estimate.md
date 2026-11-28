@@ -10,7 +10,8 @@
   - `dung_it`: tỉ lệ `0.22` (`2/9`: S001, S004), `1` phiên/người/tháng, `1` lượt hỏi/phiên.
   - `dung_vua`: tỉ lệ `0.33` (`3/9`: S002, S005, S006; khớp P1–P2 `2–4` lần/tháng ở `evidence/summary.md`), `3` phiên/người/tháng, `2` lượt hỏi/phiên.
   - `dung_nhieu`: tỉ lệ `0.45` (`4/9`: S003, S007, S008, S009), `6` phiên/người/tháng, `3` lượt hỏi/phiên.
-- **Số người dùng thật** 3 kịch bản: thấp `143` (học viên có câu hỏi trong data pre-class) · cơ sở `436` (học viên hoạt động trong data pre-class) · cao `700` (quy mô lớp L3 theo README hackathon, *(tự ước tính)* cho kịch bản cao). Nguồn: `evidence/data-mining.md` và README hackathon.
+- Các tỷ lệ này chỉ dùng tạo kịch bản tải/chi phí; S008 được mã hóa `experienced_issue=no` nhưng có `frequency_band=over_5_per_month`. Không dùng phân nhóm tần suất này để suy ra số người gặp pain hoặc nhu cầu sử dụng thực.
+- **Quy mô mô phỏng** 3 kịch bản: thấp `143` (tài khoản có câu hỏi trong data pre-class) · cơ sở `436` (tài khoản có hoạt động trong data pre-class) · cao `700` (quy mô lớp L3 theo README hackathon, *(tự ước tính)*). Đây là mẫu số tính chi phí giả định, không phải số người đã xác nhận có pain hay sẽ dùng sản phẩm. Nguồn: `evidence/data-mining.md` và README hackathon.
 - **Giá** 2 mức model (bảng giá tham chiếu khung repo đề, `https://ai.google.dev/gemini-api/docs/pricing`, xem `25/11/2026`): `gemini-3.1-flash-lite` (vào `$0.25` · ra `$1.50` / 1M token) · `gemini-4-hydrogen` (vào `$1.50` · ra `$7.50` / 1M token). Tỷ giá tham khảo: `1 USD = 25.000 ₫` *(tự ước tính)*.
 - **Tỉ lệ đạt** dùng để tính: `30/30 (100%)` — lượt `run-2@20261127-191649` (`eval/run-2.csv`, chạy bằng `openai/gpt-oss-20b`).
 - Đo token trên model **`qwen2.5:3b`** (Ollama cục bộ), tỉ lệ đạt lấy từ `eval/run-2.csv` (**`openai/gpt-oss-20b`**), tính giá model **`gemini-3.1-flash-lite`** và **`gemini-4-hydrogen`**.

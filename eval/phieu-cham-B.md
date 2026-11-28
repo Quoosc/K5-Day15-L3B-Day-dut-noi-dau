@@ -1,4 +1,4 @@
-# Phiếu chấm độc lập — Người chấm B (5 đầu ra mẫu)
+# Phiếu chấm 5 đầu ra mẫu — có điểm TV2 và phần rà soát Codex
 
 - **Run ID:** `run-2@20261127-191649`
 - **Model:** `openai/gpt-oss-20b`
@@ -134,6 +134,8 @@ Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi
 - **Người chấm:** TV 2
 - **Ngày chấm:** 28/11/2026
 
+> Lưu ý quy trình: phần rà soát Codex nằm phía trên phần TV2 trong cùng tài liệu. Không có xác nhận trong repo rằng TV2 đã chấm trước khi xem phần này; vì vậy chỉ báo cáo điểm TV2 đã ghi, không gọi đây là chấm mù.
+
 | Câu | Loại (`type`) | Điểm (`1` / `0`) | Ghi chú |
 |---|---|---|---|
 | `B01` | `thuong` | 1 | Đủ mã đoạn, mốc và `?t=0`; không đáp án hộ quiz. |
@@ -144,4 +146,4 @@ Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi
 
 **Tổng điểm thành viên thứ 2:** 4/5
 
-Sau khi xong, điền bảng đối chiếu trong `eval/README.md` và ghi tên của cả hai người chấm vào dòng pessoas/changelog nếu cần.
+Điểm TV2 đã được chép sang bảng đối chiếu trong `eval/README.md`; bất đồng B21 chưa có biên bản phân xử. Tên đầy đủ của TV2 và việc chấm có diễn ra trước khi xem phần Codex hay không vẫn cần xác nhận.

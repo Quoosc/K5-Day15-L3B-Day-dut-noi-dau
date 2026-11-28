@@ -38,17 +38,17 @@ python run.py              # Chạy tương tác CLI với 3 video thật
 | Lượt 1 | `run-1@20261127-191558` | `openai/gpt-oss-20b` | 24/30 | 80% | 6 câu (`B16`, `B17`, `B26`–`B29`) lỗi `Groq HTTP 429` |
 | Lượt 2 | `run-2@20261127-191649` | `openai/gpt-oss-20b` | 30/30 | 100% | Hết lỗi 429 sau retry + giãn nhịp 3s; `B21` cần lưu ý menu CLI hiện chung 3 video |
 
-- **Nguồn câu hỏi:** Hiện chưa có 10 câu hỏi thực tế từ người học hoặc dữ liệu câu hỏi có nội dung trong repo (`0/30 nguoi_dung`). Data BTC hiện chỉ được lưu dưới dạng số tổng hợp và cờ `missing_context`; khảo sát `evidence/survey/results.csv` (9 dòng) không chứa câu hỏi tự luận nguyên gốc và `evidence/interviews/P1.md`–`P9.md` là hồ sơ giả lập từ khảo sát. Vì vậy chưa thể ghi nhận mốc 10/30 mà không bịa nguồn.
-- **Chấm hai người:** `eval/run-1.csv` và `eval/run-2.csv` đã được Người chấm A (Trương Văn Phong) chấm theo `pass_criterion` và `eval/metric_spec.yaml`. Phiếu chấm ẩn điểm Người chấm A được đặt tại `eval/phieu-cham-B.md` gồm 5 đầu ra đại diện từ `run-2@20261127-191649` (đủ 3 nhóm `thuong`, `kho`, `tu_choi`) để thành viên khác trong nhóm chấm độc lập và đối chiếu:
+- **Nguồn câu hỏi:** `eval/benchmark.csv` có 30 câu tự viết (`0/30 nguoi_dung` / `data_that`). Data BTC chỉ lưu số tổng hợp/cờ, survey không giữ câu tự luận gốc, còn `evidence/users.md` là bản đồ kịch bản tự viết chứ không phải hồ sơ người thật. Bốn ghi chép phỏng vấn trực tiếp không có ánh xạ nguồn tới 30 câu benchmark. Không gắn nhãn `nguoi_dung` nếu chưa có câu hỏi gốc và nguồn kiểm chứng.
+- **Chấm hai người:** Người chấm A (Trương Văn Phong) chấm `eval/run-1.csv` và `eval/run-2.csv`. Phiếu ghi TV2 chấm năm đầu ra của `run-2` được 4/5; đối chiếu dưới đây có 4/5 điểm trùng và một bất đồng ở B21. Phần rà soát Codex cũng nằm trong cùng phiếu trước phần TV2, nên tài liệu hiện không đủ để xác nhận TV2 đã chấm mù khỏi nhận xét đó. Không gọi kết quả này là chấm mù; nếu rubric yêu cầu chấm độc lập hoàn toàn, cần TV2 xác nhận quy trình hoặc một lượt chấm mới bằng bản phiếu không kèm nhận xét Codex.
 
 | Run ID / câu | Người chấm A | Người chấm B | Kết quả sau đối chiếu | Ghi chú bất đồng |
 |---|---|---|---|---|
-| `run-2@20261127-191649` / `B01` (`thuong`) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
-| `run-2@20261127-191649` / `B10` (`thuong`) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
-| `run-2@20261127-191649` / `B16` (`kho`) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
-| `run-2@20261127-191649` / `B21` (`kho` · G10) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | Lưu ý kiểm tra menu CLI chưa lọc riêng từ khoá `context` |
-| `run-2@20261127-191649` / `B28` (`tu_choi` · tấn công) | 1 | Chờ người chấm B (độc lập) | Chờ đối chiếu | — |
+| `run-2@20261127-191649` / `B01` (`thuong`) | 1 | 1 (TV2) | Đồng ý | — |
+| `run-2@20261127-191649` / `B10` (`thuong`) | 1 | 1 (TV2) | Đồng ý | — |
+| `run-2@20261127-191649` / `B16` (`kho`) | 1 | 1 (TV2) | Đồng ý | — |
+| `run-2@20261127-191649` / `B21` (`kho` · G10) | 1 | 0 (TV2) | Bất đồng | Menu chưa thu hẹp riêng VID-02/VID-03 theo từ khoá `context`. |
+| `run-2@20261127-191649` / `B28` (`tu_choi` · tấn công) | 1 | 1 (TV2) | Đồng ý | — |
 
-Mục tiêu theo hướng dẫn: hai người chấm thống nhất ít nhất 4/5 đầu ra. Chỉ điền bảng bằng đầu ra thật và điểm chấm thật.
+Kết quả ghi nhận: 4/5 điểm trùng (mục tiêu tối thiểu 4/5), một bất đồng B21 chưa có biên bản phân xử. Điểm B sao lại từ phiếu TV2; tên đầy đủ và việc TV2 có thấy nhận xét Codex trước khi chấm cần xác nhận.
 
-[Phiếu chấm B chỉ chứa input, tiêu chí và output](phieu-cham-B.md). Gửi riêng phiếu này cho người thứ hai trước khi đối chiếu bảng điểm.
+[Phiếu chấm và điểm TV2](phieu-cham-B.md). Không dùng phần điểm tham khảo của Codex thay cho người chấm nhóm.

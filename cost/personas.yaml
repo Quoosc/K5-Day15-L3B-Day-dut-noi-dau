@@ -26,7 +26,7 @@ personas:
     share: 0.45
     uses_per_month: 6
     turns_per_session: 3
-    source: "evidence/survey/results.csv (n=9: 4/9 chọn >5 lần/tháng — S003, S007, S008, S009); uses_per_month=6 bảo thủ và turns_per_session=3: (tự ước tính)"
+    source: "evidence/survey/results.csv (n=9: 4/9 chọn >5 lần/tháng — S003, S007, S008, S009; S008 đồng thời chọn experienced_issue=no nên đây chỉ là giả định tải, không phải tỷ lệ pain); uses_per_month=6 bảo thủ và turns_per_session=3: (tự ước tính)"
 
 prices:
   - model: gemini-3.1-flash-lite
