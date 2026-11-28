@@ -1,6 +1,6 @@
 # Tổng hợp bằng chứng pain — rà soát CP3 (28/11/2026)
 
-> Phân biệt dữ liệu vận hành, khảo sát và phỏng vấn. Các nguồn chưa chứng minh mức độ pain trong toàn lớp; xem giới hạn dưới đây trước khi dùng số ngoại suy.
+> Phân biệt dữ liệu vận hành, khảo sát và phỏng vấn. Các số trong bản này đã được đối chiếu với `data-mining.md` và `survey/results.csv`; chúng mô tả các nguồn nhỏ, không chứng minh pain phổ biến trong toàn lớp.
 
 ## 1. Nguồn hiện có
 
@@ -49,7 +49,7 @@ Các câu dưới đây được ghi là nguyên văn trong bốn hồ sơ P1, P
 3. **P4 · Harness Engineering:** “Bài Harness Engineering kiến thức dày đặc, xem xong làm quiz hỏi về ngưỡng Compaction 80-90% với Prefix Caching thì bị lú. Mình mở lại video dài gần 30 phút, kéo chuột tìm từng slide giải thích AGENTS.md rất cực, mất hơn 20 phút chỉ để tìm được đúng 1 phút thầy giảng.” Nguồn: `evidence/interviews/P4.md`.
 4. **P5 · Transformer:** “Câu hỏi tại sao Self-Attention phải chia cho căn bậc hai của 512 làm mình lúng túng. Muốn nghe lại đoạn thầy phân tích độ lệch chuẩn gradient trước Softmax nhưng video Transformer dài 35 phút không biết ở đâu. Tua trúng đoạn khác lại phải nghe lại từ đầu, mất hơn 25 phút cực kỳ ức chế.” Nguồn: `evidence/interviews/P5.md`.
 
-**Trích dẫn thứ năm (U8): chưa xác minh, không tính vào số trích dẫn.** Summary cũ gán một câu cho U8, nhưng hồ sơ P9 hiện là giả lập từ survey S009 và không chứa câu đó; survey S008 còn được mã hóa `experienced_issue=no`. Chỉ khôi phục trích dẫn nếu người phỏng vấn cung cấp/xác nhận ghi chép gốc đã ẩn danh.
+**Hiện truy được 4 trích dẫn, chưa đủ yêu cầu 5.** Không đưa câu U8 vào bài: summary cũ gán một câu cho U8 nhưng không tìm thấy ghi chép nguồn; P9 là hồ sơ giả lập từ survey S009 và không chứa câu đó. Survey S008 được mã hóa `experienced_issue=no`, cũng không thể dùng làm nguồn cho câu trích. Chỉ bổ sung câu thứ năm khi người phỏng vấn cung cấp ghi chép gốc đã ẩn danh và xác nhận câu chữ.
 
 ## 4. Kết luận và giới hạn
 
@@ -61,7 +61,7 @@ Các câu dưới đây được ghi là nguyên văn trong bốn hồ sơ P1, P
 
 ## 5. Việc cần xác nhận trước khi nộp
 
-1. Người ghi P1/P2/P4/P5 xác nhận ngày, ngoài nhóm và câu trích có đúng nguyên văn không.
-2. Người phỏng vấn U8 xác nhận hoặc rút câu trích dẫn thứ năm; không dùng P9/S009 làm nguồn cho câu đó.
-3. Nếu muốn gắn câu benchmark là `nguoi_dung`, lưu ánh xạ ẩn danh tới ghi chép nguồn gốc; nếu không, giữ `tu_viet`.
-4. Giữ impact toàn lớp ở trạng thái “chưa ước lượng được” cho tới khi có mẫu và tần suất cùng pain mục tiêu.
+1. Người ghi P1/P2/P4/P5 xác nhận ngày, ngoài nhóm và câu trích có đúng nguyên văn không; hiện chỉ báo cáo là câu được ghi trong biên bản, chưa gọi là trích dẫn đã kiểm chứng độc lập.
+2. Để đủ 5 trích dẫn, người phỏng vấn cần gửi ghi chép gốc U8 đã ẩn danh và xác nhận câu chữ; nếu không có thì báo cáo 4, không tạo câu thay thế.
+3. Chỉ gắn benchmark là `nguoi_dung` khi có câu hỏi gốc cùng ánh xạ ẩn danh tới nguồn. Log BTC hiện có không chứa nội dung hỏi/đáp; xác nhận rằng nhóm có dùng data BTC không tự tạo ra ánh xạ cho 30 câu.
+4. Giữ kết luận pain ở mức tín hiệu định tính/chỉ báo thăm dò, chưa kết luận phổ biến hay ước lượng impact toàn lớp; cần mẫu có câu hỏi gốc và tần suất riêng cho pain quiz-sai/tìm timestamp.

@@ -146,4 +146,4 @@ Mở đoạn để ôn lại: file:///E:/VINAITHUCCHIEN/K5-Day15-L3B-Day-dut-noi
 
 **Tổng điểm thành viên thứ 2:** 4/5
 
-Điểm TV2 đã được chép sang bảng đối chiếu trong `eval/README.md`; bất đồng B21 chưa có biên bản phân xử. Tên đầy đủ của TV2 và việc chấm có diễn ra trước khi xem phần Codex hay không vẫn cần xác nhận.
+Điểm TV2 đã được chép sang bảng đối chiếu trong `eval/README.md`; bất đồng B21 chưa có biên bản phân xử. Không cần ghi tên đầy đủ của TV2. Nếu cần xác nhận chấm độc lập, TV2 xác nhận mình là người chấm khác A và có/không xem phần Codex trước khi chấm; nếu đã xem, cần chấm lại bằng bản phiếu không kèm phần đó.

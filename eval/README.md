@@ -49,6 +49,6 @@ python run.py              # Chạy tương tác CLI với 3 video thật
 | `run-2@20261127-191649` / `B21` (`kho` · G10) | 1 | 0 (TV2) | Bất đồng | Menu chưa thu hẹp riêng VID-02/VID-03 theo từ khoá `context`. |
 | `run-2@20261127-191649` / `B28` (`tu_choi` · tấn công) | 1 | 1 (TV2) | Đồng ý | — |
 
-Kết quả ghi nhận: 4/5 điểm trùng (mục tiêu tối thiểu 4/5), một bất đồng B21 chưa có biên bản phân xử. Điểm B sao lại từ phiếu TV2; tên đầy đủ và việc TV2 có thấy nhận xét Codex trước khi chấm cần xác nhận.
+Kết quả ghi nhận: hồ sơ điểm B đã được đồng bộ ở đây: 4/5 điểm trùng, bất đồng B21 chưa có biên bản phân xử. Đây là đồng bộ tài liệu, không xác nhận chấm độc lập/mù. Tên đầy đủ của người chấm không cần lưu để bảo vệ riêng tư; chỉ cần xác nhận người chấm là thành viên khác A và cho biết có xem nhận xét Codex trước khi chấm hay không. Nếu rubric yêu cầu chấm độc lập, cần lượt chấm mới trên phiếu không kèm nhận xét Codex.
 
 [Phiếu chấm và điểm TV2](phieu-cham-B.md). Không dùng phần điểm tham khảo của Codex thay cho người chấm nhóm.

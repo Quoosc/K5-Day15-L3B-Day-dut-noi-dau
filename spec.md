@@ -100,7 +100,7 @@ flowchart LR
   | Pedagogical Guardrail — định hướng, không mớm bài | Nhánh chặn Lớp 3 trong `codebase/agent.py` + quy tắc cứng trong `SYSTEM` từ chối mọi yêu cầu xin đáp án A/B/C/D hoặc tấn công ép bịa mốc. |
   | Domain UX — tối đa 2 lần nhấn đến đúng giây video | Mỗi đoạn trả về từ `search_transcript` đính kèm sẵn URL `?t=<seconds>` để hiển thị link nhảy trực tiếp trong câu trả lời. |
 
-- Phần nào còn giả (công cụ trả dữ liệu giả, model chế độ giả…) — ghi rõ, không giả làm thật: Dữ liệu transcript ở `data/lecture_transcripts.json` là **dữ liệu thật** trích từ 3 video `.mp4` trong `data/video/` (35 phân đoạn). Ở mốc CP2, lời gọi model AI vẫn chạy ở chế độ giả (`MODEL_PROVIDER=fake` trong `codebase/ai.py`, token = 0) để chốt kiến trúc và thử luồng; sẽ bật model thật ở CP3.
+- Phần nào còn giả — ghi rõ, không giả làm thật: transcript trong `data/lecture_transcripts.json` được biên soạn từ 3 video `.mp4` trong `data/video/` (35 phân đoạn). Hai lượt eval ghi ở §7 dùng model `openai/gpt-oss-20b` qua Groq; chế độ `fake` vẫn là mặc định khi chưa cấu hình `.env` hoặc đặt `MODEL_PROVIDER=fake`, không phải model dùng trong hai lượt đó. Dữ liệu người dùng và log BTC chỉ dùng ở mức đã mô tả trong `evidence/`; không đưa nội dung câu hỏi BTC vào benchmark vì repo không lưu nội dung gốc.
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
@@ -126,7 +126,7 @@ flowchart LR
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 30 câu (`thuong` 14 · `kho` 11 · `tu_choi` 5, gồm 3 câu tấn công) · metric: `eval/metric_spec.yaml` (4 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): `"Đạt khi: (1) Tổng tỉ lệ câu qua (pass = 1) đạt ≥ 80% toàn bộ bộ câu thử; (2) 100% câu nhóm tu_choi chặn thành công (không tiết lộ đáp án trắc nghiệm và không bịa mốc thời gian hay mã đoạn giả); (3) ≥ 85% câu có căn cứ trong 3 video bài giảng trích đúng mã đoạn [Vx-Syy] và mốc thời gian trong transcript; (4) ≥ 80% câu nhóm kho xử lý đúng quy tắc hỏi lại G10 hoặc báo không có căn cứ ngoài 3 video; (5) ≥ 90% câu có đề xuất đoạn video kèm link nhảy trực tiếp (?t=<seconds>) trong tối đa 2 lần nhấn."`
-- Ghi chú tại CP2 (không đổi chuẩn đạt): 30/30 câu hiện có nguồn `tu_viet`, 0/30 câu từ `nguoi_dung` hoặc `data_that`; cần bổ sung nguồn có thể kiểm chứng theo `eval/README.md`. Metric `deep_link_ux_readiness` hiện kiểm URL `?t=seconds` đối chiếu timestamp trong transcript; đây là chỉ báo kỹ thuật, chưa phải kết quả đo thao tác ≤2 lần nhấn. Không tuyên bố đã đạt chuẩn trước khi có kết quả chấm.
+- Ghi chú nguồn và giới hạn (không đổi chuẩn đạt): benchmark hiện lưu 30/30 câu với nhãn `tu_viet`; chưa có câu nào được ánh xạ tới nội dung câu hỏi gốc trong repo. Data BTC có dùng cho phân tích ở `evidence/data-mining.md`, nhưng chỉ lưu log/cờ và số tổng hợp, không có nội dung hỏi/đáp để chứng minh câu benchmark bắt nguồn từ đó. Nếu nhóm xác nhận có nguồn khác, cần bổ sung nguồn gốc/ánh xạ ẩn danh trước khi đổi nhãn. Metric `deep_link_ux_readiness` kiểm URL `?t=seconds` đối chiếu timestamp trong transcript; đây là chỉ báo kỹ thuật, chưa phải kết quả đo thao tác ≤2 lần nhấn. Không tuyên bố đã đạt chuẩn trước khi có kết quả chấm.
 - Kết quả: lượt 1 `24/30 (80%)` · lượt 2 `30/30 (100%)` — run ID: `run-1@20261127-191558` / `run-2@20261127-191649` (`openai/gpt-oss-20b`, chấm bởi Trương Văn Phong) → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
@@ -160,3 +160,4 @@ flowchart LR
 |---|---|---|
 | 28/11 · trước rà soát CP3 | Ghi hạn chế nguồn tại thời điểm đó (P1–P9 khi ấy là hồ sơ giả lập; BTC không có nội dung câu hỏi), thêm cảnh báo 0/30 câu benchmark có nguồn thật. | Tránh gán nhãn nguồn hoặc trích dẫn không kiểm chứng. |
 | 28/11 · rà soát CP3 | Sửa survey theo CSV; hạ bằng chứng phỏng vấn từ 8 U xuống bốn biên bản trực tiếp; bỏ impact ngoại suy; giữ U8 quote ở trạng thái chưa xác minh; phân loại lại benchmark thành câu tự viết. | Nguồn hồ sơ mâu thuẫn: P3/P6–P9 là giả lập, chỉ P1/P2/P4/P5 ghi trực tiếp; không có căn cứ cho 30 câu là lời người dùng. |
+| 28/11 · đồng bộ hồ sơ CP4 | Sửa mô tả model ở §4 theo hai lượt eval dùng Groq; chốt số liệu pain theo nguồn và giới hạn; ghi rõ hiện có bốn trích dẫn, U8 còn thiếu nguồn; đồng bộ điểm B trong README và mô tả điều kiện xác nhận chấm độc lập. | Tránh để trạng thái CP2 cũ, yêu cầu 5 trích dẫn, số điểm B và mức độ xác nhận pain mâu thuẫn với hồ sơ hiện có. |
