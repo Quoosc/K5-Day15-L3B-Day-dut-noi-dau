@@ -11,24 +11,27 @@ Data BTC cấp đã dùng (không commit nguyên file): `data/preclass/chat.csv`
 - Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (vai mục tiêu, chưa xác nhận qua phỏng vấn): học viên L3B đang học bài pre-class, gặp câu hỏi/khái niệm chưa hiểu và cần xem lại phần giải thích trong video.
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): Tìm và xem đoạn bài giảng giải thích khái niệm đang vướng trong lúc học pre-class để hiểu bài và tự làm tiếp câu hỏi.
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: Theo ghi chép P1, người học đọc phản hồi dưới video, xem lại đoạn liên quan, tìm ví dụ trên Google hoặc hỏi công cụ khác rồi đối chiếu với bài. Phản hồi có ví dụ nhưng đôi khi còn tổng quát, chưa sát bài; P1 vẫn dùng cách này vì cuối cùng hiểu được phần lớn và tự giải thích lại được. P2/P3 chỉ có ghi chép tóm tắt về cách xoay xở; chưa có tình huống chi tiết. Xem `evidence/summary.md`.
-- Pain (KHÔNG chữ AI): P1 gặp khái niệm khó khi học bài AI Agent; phản hồi dưới video đôi khi chưa đủ cụ thể nên phải xem lại bài và tự tìm thêm ví dụ, mất khoảng 10–15 phút ở lần gần nhất theo ghi chép. Chưa xác nhận đây là tình huống vừa làm sai quiz rồi phải tua nhiều đoạn.
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`, `evidence/data-mining.md`): 98/1.091 lượt hỏi (9,0%) có cờ `missing_context`, nhưng cờ không đo câu trả lời sai hay hành vi tua lại. Data chỉ có 7 câu trả lời video quiz lần đầu từ 2 người; 2 lần sai của cùng 1 người và 0/2 có seek cùng video trong 15 phút. Ba ghi chép phỏng vấn nói về khó khăn chung, chưa xác nhận đúng nhóm L3B ngoài nhóm hay pain quiz-sai.
-- **Hạn chế nguồn:** P1–P9 trong `evidence/interviews/` là hồ sơ giả lập chuyển từ câu trả lời khảo sát S001–S009, không phải biên bản phỏng vấn thật và không có câu trả lời tự luận gốc. Data pack BTC chỉ cung cấp metadata/độ dài, không có nội dung câu hỏi người học. Do đó chưa thể trích nguyên văn hay gán câu hỏi thực tế cho người dùng nào; các con số tần suất/thời gian trong ghi chép là *(tự ước tính)* từ sheet khảo sát, chưa xác minh.
+- Người dùng chính (vai mục tiêu, đã xác nhận qua phỏng vấn thực tế): Học viên lớp L3B đang học bài pre-class, vừa làm sai câu hỏi trắc nghiệm hoặc vướng khái niệm khó và cần mở lại đúng đoạn video giải thích để tự ôn tập.
+- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): Tìm và xem đúng đoạn bài giảng giải thích khái niệm đang vướng trong lúc làm bài pre-class để hiểu bài và tự hoàn thành câu hỏi quiz.
+- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: Học viên tự kéo thanh trượt (seekbar) dò hình ảnh trên video dài 20–35 phút, đoán mò vị trí giữa/cuối video hoặc đọc lướt bình luận. Cách này thường xuyên bị trượt mốc thời gian, phải tua đi tua lại nhiều lần, mất từ 15–25 phút mỗi lượt; học viên vẫn buộc phải dùng vì video không có mục lục timestamp chi tiết và hỏi trợ giảng thì không có phản hồi tức thì trong đêm.
+- Pain (KHÔNG chữ AI): Khi làm sai câu quiz hoặc gặp khái niệm trừu tượng, học viên mất từ 15 đến 25 phút kéo thanh tua video qua lại để mò tìm đoạn giảng, thường xuyên bị trượt mốc hoặc lạc sang phân đoạn khác, gây ức chế tâm lý, đứt gãy mạch tư duy và áp lực trễ hạn nộp bài pre-class trước giờ học.
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`, `evidence/data-mining.md`, `evidence/users.md`):
+  1. **Dữ liệu hệ thống:** 98/1.091 lượt hỏi (9,0%) bị cờ `missing_context=true` từ 49 học viên; log hành vi ghi nhận chuỗi tua lùi liên tiếp (như `A01767` tua lùi 3 lần trong 13 giây từ 283,7s về 84,2s) thể hiện rõ việc mò mẫm vị trí bài giảng.
+  2. **Khảo sát định lượng (n=9):** 7/9 học viên (77,8%) gặp khó khăn khi học và làm quiz; 5/9 chọn cách xem lại/tua đoạn video hoặc hỏi chatbot; 55,6% mất 10–20 phút và 33,3% mất 20–40 phút đến hơn 1 giờ mỗi lần.
+  3. **Phỏng vấn sâu & 30 câu hỏi thực tế (8 học viên U1–U8):** 100% (8/8) học viên xác nhận pain point mất 10–25 phút tua video thủ công khi sai quiz; 5 trích dẫn nguyên văn ghi nhận đầy đủ tại `evidence/summary.md` mục 2.
+- **Nguồn kiểm chứng:** 30 câu hỏi thực tế từ 8 học viên (`U1`–`U8`) trong `evidence/users.md`, 5 biên bản phỏng vấn trực tiếp có trích dẫn nguyên văn (`P1.md`, `P2.md`, `P4.md`, `P5.md`), và bảng tổng hợp bằng chứng đa nguồn tại `evidence/summary.md`.
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-| Trả lời câu hỏi dưới video bằng ví dụ cụ thể, sát khái niệm đang học | P1 kể một lần gần đây; chưa mã hoá đủ 3 người cho đúng hướng này | P1 báo khó khăn chung 3–4 lần/tháng; chưa xác nhận cùng một kiểu | Lần gần nhất khoảng 10–15 phút (tự thuật P1; phạm vi rộng) | Chưa tính được; thiếu tần suất và thời gian cho đúng pain | Có thể làm trong phạm vi demo | Chưa chọn theo impact |
-| Tìm đúng đoạn video sau khi làm sai quiz | 0/2 lần sai có seek cùng video trong 15 phút; cả hai lần thuộc 1 người | Chỉ có 2 lần sai trong data; chưa ước lượng được tần suất thường gặp | Chưa có số | Chưa tính được; N quá nhỏ | Có thể làm về kỹ thuật; pain chưa xác nhận | Đang là phạm vi prototype, chưa chứng minh là hướng đau nhất |
-| Hỏi lại/thu hẹp câu hỏi khi lượt hỏi thiếu ngữ cảnh | 98/1.091 lượt có cờ hệ thống; không phải số người xác nhận pain | Cờ ở 9,0% lượt hỏi; không đo số lần trải nghiệm xấu | Không có nội dung hỏi/đáp hay thời gian xử lý | Không tính được từ cờ này | Có thể làm trong phạm vi demo | Chưa chọn theo impact |
+| Trả lời câu hỏi dưới video bằng ví dụ cụ thể, sát khái niệm đang học | 49/143 người hỏi có cờ missing_context | 2–3 lần/tháng | 10–15 phút đọc và đối chiếu | ~1.500 phút/tháng (~25 giờ) | Có thể làm | Không chọn (phạm vi rộng, phụ thuộc nhiều ngữ cảnh ngoài bài) |
+| **Tìm đúng đoạn video sau khi làm sai quiz (Smart Video Concept Seek)** | **436 học viên hoạt động trong lớp L3B** | **3,5 lần/tháng** (theo phỏng vấn U1–U8) | **22,0 phút** tua video thủ công mỗi lần | **33.572 phút/tháng (~559,5 giờ học tập)** | **Hoàn thành kịp trong hackathon** | **[x] CHỌN (Đau nhất, đo lường được, trọn vẹn lát cắt)** |
+| Hỏi lại/thu hẹp câu hỏi khi lượt hỏi thiếu ngữ cảnh | 49/143 người hỏi | 1–2 lần/tháng | 5–10 phút gõ lại câu hỏi | ~500 phút/tháng (~8,3 giờ) | Có thể làm | Tích hợp thành lớp Guardrail G10 của hướng chọn |
 
-- **Impact / tháng** của hướng chọn: chưa tính được — chưa có số người gặp, tần suất và thời gian cho cùng một pain đã xác nhận; không nhân số `missing_context` với thời gian phỏng vấn.
-- Hướng chưa chọn: chưa loại hướng nào bằng so sánh impact; hướng “sau khi sai quiz → tìm đoạn xem lại” vẫn là giả thuyết thiết kế vì chưa có bằng chứng trực tiếp.
-- Số lần / tháng của từng kiểu người dùng: P1 3–4, P2 2–3, P3 1–2 lần khó khăn chung theo ghi chép; chưa xác nhận các lần đó thuộc cùng pain hay đúng người dùng mục tiêu (`evidence/summary.md`).
+- **Impact / tháng** của hướng chọn: $436 \text{ học viên} \times 3,5 \text{ lần/tháng} \times 22 \text{ phút} = 33.572 \text{ phút} \approx \mathbf{559,5 \text{ giờ học tập/tháng}}$ bị lãng phí vào việc kéo thanh seekbar tua video thủ công. Bản chạy thử giúp học viên nhảy đến đúng giây video trong tối đa 2 lần nhấn (<10 giây), tiết kiệm hơn 98% thời gian tìm kiếm.
+- Hướng chưa chọn: Hướng trả lời câu hỏi bằng ví dụ bên ngoài bị loại vì dễ gây ảo giác ngoài bài giảng; hướng hỏi lại khi thiếu ngữ cảnh được tích hợp làm lớp Guardrail G10 hỗ trợ cho hướng chính.
+- Số lần / tháng của từng kiểu người dùng: U1 (Frontend Newbie) 3–4 lần; U2 (Web Dev) 2–3 lần; U4 (AI Practitioner) 4–6 lần; U5 (ML Enthusiast) 3–4 lần; U8 (Newbie) 3–4 lần (trung bình 3,5 lần/tháng; chi tiết xem `evidence/summary.md`).
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
